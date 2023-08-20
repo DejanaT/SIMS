@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekat"
         mc:Ignorable="d"
-        Title="Login" Height="500" Width="800">
+        Title="Login" Height="500" Width="800" WindowStartupLocation="CenterScreen">
     <Grid Background="LightBlue">
         <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden"/>
         <TextBox x:Name="Email" HorizontalAlignment="Left" Margin="218,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="349" Height="32"/>
-        <TextBox x:Name="Password" HorizontalAlignment="Left" Margin="218,239,0,0" VerticalAlignment="Top" Width="349" Height="32"/>
+        <PasswordBox x:Name="Password" HorizontalAlignment="Left" Margin="218,239,0,0" VerticalAlignment="Top" Width="349" Height="32"/>
         <Label Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Height="67" FontSize="40" Margin="338,84,0,0" FontWeight="DemiBold"/>
         <Label Content="Email:" HorizontalAlignment="Left" Margin="214,151,0,0" VerticalAlignment="Top"/>
         <Label Content="Password:" HorizontalAlignment="Left" Margin="214,214,0,0" VerticalAlignment="Top"/>
-        
+
         <Button Content="Login" Click="Login_Click" Height="25" Margin="347,304,355,0" VerticalAlignment="Top"/>
 
     </Grid>
