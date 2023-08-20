@@ -23,6 +23,8 @@ namespace Projekat.GuestPages
         public GuestWindow(User user)
         {
             InitializeComponent();
+            Name.Text = user.Name;
+            Surname.Text = user.Surname;
         }
     }
 }
