@@ -1,6 +1,10 @@
-﻿using Projekat.AdministratorPages;
+﻿using Project.Model;
+using Project.Model.Enums;
+using Projekat.AdministratorPages;
 using Projekat.Controller;
 using Projekat.DTOs;
+using Projekat.GuestPages;
+using Projekat.HostPages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +30,8 @@ namespace Projekat
 
         private UserController userController = new UserController();
         private LoginDTO loginDTO = new LoginDTO();
+        private int attemptsNumber = 0;
+        private int maxAttempts = 3;
 
         public MainWindow()
         {
@@ -36,21 +42,69 @@ namespace Projekat
         {
 
             loginDTO.Email = Email.Text;
-            loginDTO.Password = Password.Text;
+            loginDTO.Password = Password.Password;
 
             if (userController.IsUserExist(loginDTO))
             {
-                Frame newFrame = new Frame();
-                newFrame.Navigate(new CreateUser());
-                this.Content = newFrame;
-
+                User user = userController.FindByEmail(loginDTO.Email);
+                CheckUserType(user);
             }
             else
             {
-                MessageBox.Show("Invalid credentials or you are blocked!");
+                int remainingAttempts = CheckRemainingAttempts();
+                if(remainingAttempts > 0)
+                {
+                    MessageBox.Show("Invalid credentials!\nRemaining attempts: " + remainingAttempts);
+                }
+              
             }
         }
 
-     }
+        public int CheckRemainingAttempts()
+        {
+            attemptsNumber++;
+            int remainingAttempts = maxAttempts - attemptsNumber;
+
+            if (remainingAttempts < 1)
+            {
+                MessageBox.Show("You have used all attempts.\n" +
+                                "You are forbidden from logging in again.");
+                this.Close();
+            }
+
+            return remainingAttempts;
+        }
+
+        public void CheckMaxAttempts()
+        {
+            if (attemptsNumber >= maxAttempts)
+            {
+                MessageBox.Show("You have used " + maxAttempts + " attempts.\n" +
+                                "You are forbidden from logging in again.");
+                this.Close();
+            }
+        }
+        public void CheckUserType(User user)
+        {
+            if (user.UserType == UserType.Administrator)
+            {
+                ShowWindow(new AdminWindow(user));
+            }
+            else if (user.UserType == UserType.Host)
+            {
+                ShowWindow(new HostWindow(user));
+            }
+            else
+            {
+                ShowWindow(new GuestWindow(user));
+            }
+        }
+
+        private void ShowWindow(Window window)
+        {
+            window.Show();
+            this.Close();
+        }
+    }
 }
 
