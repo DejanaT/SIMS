@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Project
+namespace Projekat
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
