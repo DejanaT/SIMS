@@ -23,6 +23,8 @@ namespace Projekat.AdministratorPages
         public AdminWindow(User user)
         {
             InitializeComponent();
+            Name.Text = user.Name;
+            Surname.Text = user.Surname;
         }
     }
 }
