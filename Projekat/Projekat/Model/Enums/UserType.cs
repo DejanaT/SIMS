@@ -8,7 +8,7 @@ namespace Project.Model.Enums
 {
     public enum UserType
     {
-        Administartor,
+        Administrator,
         Host,
         Guest
     }

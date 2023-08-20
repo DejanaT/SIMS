@@ -16,6 +16,7 @@ namespace Project.Model
         public string Surname {get; set; }
         public string MobilePhone {get; set; }
         public UserType UserType { get; set; }
+        public Boolean Blocked { get; set; }
 
     }
 }
