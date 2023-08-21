@@ -80,8 +80,18 @@ namespace Projekat.Repository
 
         }
 
+        public void UpdateUser(User user)
+        {
+            users = GetAllUsers();
 
-
+            User existingUser = users.FirstOrDefault(u => u.JMBG.Equals(user.JMBG));
+            if (existingUser != null)
+            {
+                int index = users.IndexOf(existingUser);
+                users[index] = user;
+                SaveChanges(users);
+            }
+        }
 
 
 

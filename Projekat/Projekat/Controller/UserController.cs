@@ -46,6 +46,16 @@ namespace Projekat.Controller
             return userService.IsUserExist(loginDTO);
         }
 
+        public void BlockUser(User user)
+        {
+            userService.BlockUser(user);
+        }
+
+        public void UnblockUser(User user)
+        {
+            userService.UnblockUser(user);
+        }
+
 
     }
 }

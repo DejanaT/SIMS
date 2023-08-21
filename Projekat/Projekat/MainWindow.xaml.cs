@@ -47,16 +47,22 @@ namespace Projekat
             if (userController.IsUserExist(loginDTO))
             {
                 User user = userController.FindByEmail(loginDTO.Email);
+
+                if (user.Blocked)
+                {
+                    MessageBox.Show("You are blocked and can't log in.");
+                    return;
+                }
+
                 CheckUserType(user);
             }
             else
             {
                 int remainingAttempts = CheckRemainingAttempts();
-                if(remainingAttempts > 0)
+                if (remainingAttempts > 0)
                 {
                     MessageBox.Show("Invalid credentials!\nRemaining attempts: " + remainingAttempts);
                 }
-              
             }
         }
 
