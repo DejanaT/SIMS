@@ -31,32 +31,20 @@
     "Surname": "Jankovic",
     "MobilePhone": "021885400",
     "UserType": 2,
-    "Blocked": false,
+    "Blocked": true,
     "Id": "2862477a-f246-43c8-8678-87a690db0841",
     "Deleted": false
   },
   {
-    "JMBG": "1472583698526",
-    "Email": "mirko@gmail.com",
-    "Password": "Mirko123",
-    "Name": "Mirko",
-    "Surname": "Mirkovic",
-    "MobilePhone": "02586325",
-    "UserType": 1,
-    "Blocked": false,
-    "Id": "d0791fa6-e81a-48f5-aa33-b48c3ca14d6d",
-    "Deleted": false
-  },
-  {
-    "JMBG": "123654987126",
+    "JMBG": "1234569632525",
     "Email": "angel@gmail.com",
     "Password": "Angel123",
     "Name": "Angel",
     "Surname": "Grlica",
-    "MobilePhone": "0648477752",
+    "MobilePhone": "0215286397",
     "UserType": 2,
-    "Blocked": false,
-    "Id": "19b38a6e-c65f-4001-be29-777be6473eaa",
+    "Blocked": true,
+    "Id": "1012d6df-ca58-4df2-85cc-58b666960617",
     "Deleted": false
   }
 ]

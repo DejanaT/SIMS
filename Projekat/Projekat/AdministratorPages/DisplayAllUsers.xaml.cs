@@ -100,5 +100,33 @@ namespace Projekat.AdministratorPages
             FilterAndSort();
         }
 
+        private void BlockButton_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedRow = (DataGridRow)dataGrid.ItemContainerGenerator.ContainerFromIndex(dataGrid.SelectedIndex);
+            User selectedUser = (User)selectedRow.Item;
+            //selectedUser.Blocked = true;
+            if(selectedUser.UserType.ToString() != "Administrator")
+            {
+                userController.BlockUser(selectedUser);
+                dataGrid.Items.Refresh();
+                MessageBox.Show($"You have successfully blocked user :  { selectedUser.Name} {selectedUser.Surname}.");
+            }
+            else
+            {
+                MessageBox.Show($"Administrators hold a special status and cannot be blocked!");
+            }
+           
+        }
+
+        private void UnblockButton_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedRow = (DataGridRow)dataGrid.ItemContainerGenerator.ContainerFromIndex(dataGrid.SelectedIndex);
+            User selectedUser = (User)selectedRow.Item;
+            //selectedUser.Blocked = false;
+            userController.UnblockUser(selectedUser);
+            dataGrid.Items.Refresh();
+            MessageBox.Show($"You have successfully unblocked user :  {selectedUser.Name} {selectedUser.Surname}.");
+        }
     }
+    
 }

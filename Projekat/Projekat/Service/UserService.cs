@@ -84,6 +84,17 @@ namespace Projekat.Service
 
             return users.Any(user => loginDTO.Email.Equals(user.Email) && loginDTO.Password.Equals(user.Password));
         }
+        public void BlockUser(User user)
+        {
+            user.Blocked = true;
+            userRepository.UpdateUser(user);
+        }
+
+        public void UnblockUser(User user)
+        {
+            user.Blocked = false;
+            userRepository.UpdateUser(user);
+        }
 
 
     }
