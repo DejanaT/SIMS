@@ -5,35 +5,37 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Projekat.AdministratorPages"
       mc:Ignorable="d" 
-      d:DesignHeight="500" d:DesignWidth="800"
+      d:DesignHeight="445" d:DesignWidth="650"
       Title="CreateUser">
 
     <Grid Background="LightBlue">
-        <Label Content="Register new user" FontSize="30" Margin="272,30,275,0" VerticalAlignment="Top" Width="300"/>
-        <TextBox Name="Name" Margin="274,120,283,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="1.35,0.323" Height="22"/>
-        <TextBox Name="Lastname" Margin="274,160,283,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="243" Height="22"/>
-        <TextBox Name="JMBG" Margin="274,200,283,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="243" Height="22"/>
-        <TextBox Name="PhoneNumber" Margin="274,240,283,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="243" Height="22"/>
-        <TextBox Name="Email" Margin="274,280,283,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="243" Height="22"/>
-        <TextBox Name="Password" Margin="274,320,283,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="243" Height="22"/>
-        <ComboBox Name="TypeBox" HorizontalAlignment="Left" Margin="274,360,283,0" VerticalAlignment="Top" Width="243"/>
+        <Frame x:Name="contentFrame" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,53,0,0" Height="500"/>
 
-        <Label Content="Name:" Margin="272,100,283,0" VerticalAlignment="Top"/>
-        <Label Content="Lastname:" Margin="272,140,283,0" VerticalAlignment="Top"/>
-        <Label Content="JMBG:" Margin="272,180,283,0" VerticalAlignment="Top"/>
-        <Label Content="Phone number:" Margin="272,220,283,0" VerticalAlignment="Top"/>
-        <Label Content="Email:" Margin="272,260,283,0" VerticalAlignment="Top"/>
-        <Label Content="Password:" Margin="272,300,283,0" VerticalAlignment="Top"/>
-        <Label Content="Type:" Margin="272,340,283,0" VerticalAlignment="Top"/>
+        <Label Content="Register new user" FontSize="30" Margin="198,12,152,0" VerticalAlignment="Top" Width="300"/>
+        <TextBox Name="Name" Margin="204,80,203,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="243" Height="22"/>
+        <TextBox Name="Surname" Margin="204,120,203,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="243" Height="22"/>
+        <TextBox Name="JMBG" Margin="204,160,203,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="243" Height="22"/>
+        <TextBox Name="PhoneNumber" Margin="204,200,203,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="243" Height="22"/>
+        <TextBox Name="Email" Margin="204,240,203,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="243" Height="22"/>
+        <PasswordBox Name="Password" Margin="204,280,203,0" VerticalAlignment="Top" Width="243" Height="22"/>
+        <ComboBox Name="ComboBox" Margin="204,320,203,0" VerticalAlignment="Top" Width="243" Height="22"/>
 
-        <Button Content="Register" HorizontalAlignment="Left" Margin="342,419,0,0" VerticalAlignment="Top" FontSize="15" Width="100" Height="30">
+        <Label Content="Name:" Margin="202,60,353,0" VerticalAlignment="Top"/>
+        <Label Content="Lastname:" Margin="202,100,353,0" VerticalAlignment="Top"/>
+        <Label Content="JMBG:" Margin="202,140,353,0" VerticalAlignment="Top"/>
+        <Label Content="Phone number:" Margin="202,180,327,0" VerticalAlignment="Top"/>
+        <Label Content="Email:" Margin="202,220,353,0" VerticalAlignment="Top"/>
+        <Label Content="Password:" Margin="202,260,353,0" VerticalAlignment="Top"/>
+        <Label Content="Type:" Margin="202,300,353,0" VerticalAlignment="Top"/>
+
+        <Button Content="Register" HorizontalAlignment="Left" Margin="273,355,0,0" VerticalAlignment="Top" FontSize="15" Width="100" Height="30" Click="Create_User_Click">
             <Button.Background>
                 <SolidColorBrush Color="#2E86C1" />
             </Button.Background>
         </Button>
 
-        <Image Margin="36,0,568,0" Source="C:\Users\dejana\Desktop\SIMS\Projekat\Projekat\Images/maleUser.png" Stretch="Fill" VerticalAlignment="Center" Height="180" Width="180"/>
-        <Image Margin="551,0,49,0" Source="C:\Users\dejana\Desktop\SIMS\Projekat\Projekat\Images/femaleUser.png" Stretch="Fill" VerticalAlignment="Center" Height="180" Width="180"/>
+        <Image Margin="54,0,500,0" Source="C:\Users\dejana\Desktop\SIMS\Projekat\Projekat\Images/maleUser.png" Stretch="Fill" VerticalAlignment="Center" Height="100"/>
+        <Image Margin="497,0,58,0" Source="C:\Users\dejana\Desktop\SIMS\Projekat\Projekat\Images/femaleUser.png" Stretch="Fill" VerticalAlignment="Center" Height="100"/>
 
 
 

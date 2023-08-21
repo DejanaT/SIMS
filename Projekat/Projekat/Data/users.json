@@ -1,4 +1,4 @@
-[  
+[
   {
     "JMBG": "1234567891232",
     "Email": "dejana@gmail.com",
@@ -6,9 +6,45 @@
     "Name": "Dejana",
     "Surname": "Tesanovic",
     "MobilePhone": "0652615400",
-    "UserType": 1,
+    "UserType": 0,
     "Blocked": false,
     "Id": "08110091239",
-    "deleted" : false
+    "Deleted": false
+  },
+  {
+    "JMBG": "1234563692581",
+    "Email": "ivana@gmail.com",
+    "Password": "Ivana123",
+    "Name": "Ivana",
+    "Surname": "Ivanic",
+    "MobilePhone": "022615400",
+    "UserType": 1,
+    "Blocked": false,
+    "Id": "3961ef0c-49f2-4c9f-8cfc-3636f8cfcc1e",
+    "Deleted": false
+  },
+  {
+    "JMBG": "1234574185296",
+    "Email": "janko@gmail.com",
+    "Password": "Janko123",
+    "Name": "Janko",
+    "Surname": "Jankovic",
+    "MobilePhone": "021885400",
+    "UserType": 2,
+    "Blocked": false,
+    "Id": "2862477a-f246-43c8-8678-87a690db0841",
+    "Deleted": false
+  },
+  {
+    "JMBG": "1472583698526",
+    "Email": "mirko@gmail.com",
+    "Password": "Mirko123",
+    "Name": "Mirko",
+    "Surname": "Mirkovic",
+    "MobilePhone": "02586325",
+    "UserType": 1,
+    "Blocked": false,
+    "Id": "d0791fa6-e81a-48f5-aa33-b48c3ca14d6d",
+    "Deleted": false
   }
 ]

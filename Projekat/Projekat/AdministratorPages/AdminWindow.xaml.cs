@@ -1,4 +1,5 @@
 ﻿using Project.Model;
+using Projekat.Controller;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,11 +21,34 @@ namespace Projekat.AdministratorPages
     /// </summary>
     public partial class AdminWindow : Window
     {
+
         public AdminWindow(User user)
         {
             InitializeComponent();
             Name.Text = user.Name;
             Surname.Text = user.Surname;
         }
+
+        private void Menu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = Menu.SelectedIndex;
+            if (index == -1) return;
+            switch (index)
+            {
+                
+                case 0:
+                    mainFrame.Navigate(new CreateUser());
+                    break;
+                case 1:
+                    //dodati
+                    break;
+                case 2:
+                    //dodati
+                    break;
+            }
+
+            Menu.SelectedIndex = -1;
+        }
+
     }
 }
