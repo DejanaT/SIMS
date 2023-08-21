@@ -22,6 +22,7 @@ namespace Projekat.Repository
             using (JsonWriter jsonWriter = new JsonTextWriter(streamWriter))
 
             {
+                jsonWriter.Formatting = Formatting.Indented;
                 jsonSerializer.Serialize(jsonWriter, data);
 
             }

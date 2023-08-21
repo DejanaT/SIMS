@@ -37,6 +37,7 @@ namespace Projekat.Service
 
         public void Create(User user)
         {
+            user.Id = Guid.NewGuid().ToString();
             bool isUserExist = userRepository.GetAllUsers().Any(u => u.Id == user.Id || u.JMBG == user.JMBG || u.Email == user.Email);
 
             if (!isUserExist)
