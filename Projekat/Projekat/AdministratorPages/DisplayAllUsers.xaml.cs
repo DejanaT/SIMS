@@ -35,41 +35,70 @@ namespace Projekat.AdministratorPages
             dataGrid.ItemsSource = allUsers;
         }
 
-        private void NameSurname_Sorting(object sender, DataGridSortingEventArgs e)
+        private void FilterAndSort()
         {
+            ComboBoxItem filterSelectedItem = (ComboBoxItem)filterComboBox.SelectedItem;
+            string userFilter = filterSelectedItem.Tag.ToString();
 
-            var column = e.Column;
-            e.Handled = true;
+            IEnumerable<User> filteredUsers;
 
-            if (column.SortDirection == ListSortDirection.Descending)
+            if (userFilter == "Show all")
             {
-                column.SortDirection = ListSortDirection.Ascending;
-                dataGrid.Items.SortDescriptions.Clear();
-                dataGrid.Items.SortDescriptions.Add(new SortDescription(column.SortMemberPath, ListSortDirection.Ascending));
+                filteredUsers = allUsers;
             }
             else
             {
-                column.SortDirection = ListSortDirection.Descending;
-                dataGrid.Items.SortDescriptions.Clear();
-                dataGrid.Items.SortDescriptions.Add(new SortDescription(column.SortMemberPath, ListSortDirection.Descending));
+                filteredUsers = allUsers.Where(u => u.UserType.ToString() == userFilter);
             }
 
+            ApplySorting(filteredUsers);
+        }
+
+        private void Sort_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (dataGrid.ItemsSource == null)
+            {
+                return;
+            }
+
+            ComboBoxItem sortSelectedItem = (ComboBoxItem)sortComboBox.SelectedItem;
+            string sortOption = sortSelectedItem.Tag.ToString();
+
+            IEnumerable<User> sortedUsers = dataGrid.ItemsSource as IEnumerable<User>;
+
+            ApplySorting(sortedUsers, sortOption);
+        }
+
+        private void ApplySorting(IEnumerable<User> users, string sortOption = null)
+        {
+            if (sortOption == null)
+            {
+                dataGrid.ItemsSource = users;
+                return;
+            }
+
+            if (sortOption == "Name Asc")
+            {
+                dataGrid.ItemsSource = users.OrderBy(u => u.Name);
+            }
+            else if (sortOption == "Name Desc")
+            {
+                dataGrid.ItemsSource = users.OrderByDescending(u => u.Name);
+            }
+            else if (sortOption == "Surname Asc")
+            {
+                dataGrid.ItemsSource = users.OrderBy(u => u.Surname);
+            }
+            else if (sortOption == "Surname Desc")
+            {
+                dataGrid.ItemsSource = users.OrderByDescending(u => u.Surname);
+            }
         }
 
         private void Filter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ComboBoxItem selectedItem = (ComboBoxItem)filterComboBox.SelectedItem;
-            string userFilter = selectedItem.Tag.ToString();
-
-            if (userFilter == "Show all")
-            {
-                dataGrid.ItemsSource = allUsers;
-            }
-            else
-            {
-                dataGrid.ItemsSource = allUsers.Where(u => u.UserType.ToString() == userFilter);
-            }
-
+            FilterAndSort();
         }
+
     }
 }
