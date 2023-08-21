@@ -46,5 +46,17 @@
     "Blocked": false,
     "Id": "d0791fa6-e81a-48f5-aa33-b48c3ca14d6d",
     "Deleted": false
+  },
+  {
+    "JMBG": "123654987126",
+    "Email": "angel@gmail.com",
+    "Password": "Angel123",
+    "Name": "Angel",
+    "Surname": "Grlica",
+    "MobilePhone": "0648477752",
+    "UserType": 2,
+    "Blocked": false,
+    "Id": "19b38a6e-c65f-4001-be29-777be6473eaa",
+    "Deleted": false
   }
 ]

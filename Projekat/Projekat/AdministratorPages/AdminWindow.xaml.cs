@@ -40,7 +40,7 @@ namespace Projekat.AdministratorPages
                     mainFrame.Navigate(new CreateUser());
                     break;
                 case 1:
-                    //dodati
+                    mainFrame.Navigate(new DisplayAllUsers());
                     break;
                 case 2:
                     //dodati
