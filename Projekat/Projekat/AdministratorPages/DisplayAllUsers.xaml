@@ -12,10 +12,10 @@
         <Frame x:Name="contentFrame" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,53,0,0" Height="500"/>
         <Rectangle HorizontalAlignment="Left" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Height="55" Width="800"/>
 
-        <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" Margin="0,50,0,0"  CanUserSortColumns="True" Sorting="NameSurname_Sorting">
+        <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" Margin="0,50,0,0"  CanUserSortColumns="False" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" SortMemberPath="Name"/>
-                <DataGridTextColumn Header="Surname" Binding="{Binding Surname}" SortMemberPath="Surname"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Surname" Binding="{Binding Surname}"/>
                 <DataGridTextColumn Header="JMBG" Binding="{Binding JMBG}"/>
                 <DataGridTextColumn Header="PhoneNumber" Binding="{Binding MobilePhone}"/>
                 <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
@@ -24,13 +24,22 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <ComboBox x:Name="filterComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="476,14,0,0"
+        <ComboBox x:Name="filterComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="481,17,0,0"
                   SelectionChanged="Filter_SelectionChanged">
             <ComboBoxItem Content="Host" Tag="Host"/>
             <ComboBoxItem Content="Guest" Tag="Guest"/>
             <ComboBoxItem Content="Show all" Tag="Show all"/>
         </ComboBox>
-        <Label Content="Filter users:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="82" Margin="394,10,0,0" FontSize="14"/>
+        <Label Content="Filter users:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="82" Margin="400,13,0,0" FontSize="14"/>
+
+        <Label Content="Sort users:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="82" Margin="4,13,0,0" FontSize="14"/>
+        <ComboBox x:Name="sortComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="76,17,0,0"
+                  SelectionChanged="Sort_SelectionChanged">
+            <ComboBoxItem Content="Name Asc" Tag="Name Asc"/>
+            <ComboBoxItem Content="Name Desc" Tag="Name Desc"/>
+            <ComboBoxItem Content="Surname Asc" Tag="Surname Asc"/>
+            <ComboBoxItem Content="Surname Desc" Tag="Surname Desc"/>
+        </ComboBox>
 
     </Grid>
 </Page>
