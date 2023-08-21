@@ -64,6 +64,9 @@
     <Compile Include="AdministratorPages\CreateUser.xaml.cs">
       <DependentUpon>CreateUser.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AdministratorPages\DisplayAllUsers.xaml.cs">
+      <DependentUpon>DisplayAllUsers.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="DTOs\LoginDTO.cs" />
     <Compile Include="GuestPages\GuestWindow.xaml.cs">
@@ -80,6 +83,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AdministratorPages\CreateUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdministratorPages\DisplayAllUsers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
