@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Projekat.Model.Enums;
+using System.Collections.Generic;
 
 namespace Project.Model
 {
@@ -10,6 +11,7 @@ namespace Project.Model
         public IDictionary<string, Apartment> Apartments { get; set; }
         public int NumberOfStars { get; set; }
         public string HostJmbg { get; set; }
+        public HotelStatus HotelStatus { get; set; }
 
     }
 }
