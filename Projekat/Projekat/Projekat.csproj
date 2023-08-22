@@ -64,11 +64,15 @@
     <Compile Include="AdministratorPages\AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AdministratorPages\ApartmentsConverter.cs" />
     <Compile Include="AdministratorPages\CreateHotel.xaml.cs">
       <DependentUpon>CreateHotel.xaml</DependentUpon>
     </Compile>
     <Compile Include="AdministratorPages\CreateUser.xaml.cs">
       <DependentUpon>CreateUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdministratorPages\DisplayAllHotels.xaml.cs">
+      <DependentUpon>DisplayAllHotels.xaml</DependentUpon>
     </Compile>
     <Compile Include="AdministratorPages\DisplayAllUsers.xaml.cs">
       <DependentUpon>DisplayAllUsers.xaml</DependentUpon>
@@ -77,6 +81,10 @@
     <Compile Include="Controller\HotelController.cs" />
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="DTOs\LoginDTO.cs" />
+    <Compile Include="GuestPages\ApartmentsConverter.cs" />
+    <Compile Include="GuestPages\DisplayAllHotels.xaml.cs">
+      <DependentUpon>DisplayAllHotels.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GuestPages\GuestWindow.xaml.cs">
       <DependentUpon>GuestWindow.xaml</DependentUpon>
     </Compile>
@@ -107,9 +115,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AdministratorPages\DisplayAllHotels.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AdministratorPages\DisplayAllUsers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GuestPages\DisplayAllHotels.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="GuestPages\GuestWindow.xaml">
       <SubType>Designer</SubType>

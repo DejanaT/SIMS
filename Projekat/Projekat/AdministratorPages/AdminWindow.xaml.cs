@@ -45,6 +45,9 @@ namespace Projekat.AdministratorPages
                 case 2:
                     mainFrame.Navigate(new CreateHotel());
                     break;
+                case 3:
+                    mainFrame.Navigate(new DisplayAllHotels());
+                    break;
             }
 
             Menu.SelectedIndex = -1;

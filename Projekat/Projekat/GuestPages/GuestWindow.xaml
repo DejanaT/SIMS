@@ -15,7 +15,7 @@
 
         <Rectangle HorizontalAlignment="Left" Stroke="Black" StrokeThickness="1" VerticalAlignment="Top" Height="450" Width="150" Margin="0,53,0,0"/>
 
-        <ListView x:Name="Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Height="450" Width="150" Margin="0,53,0,0" BorderBrush="Black" Background="LightBlue">
+        <ListView x:Name="Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Height="450" Width="150" Margin="0,53,0,0" BorderBrush="Black" Background="LightBlue" SelectionChanged="Menu_SelectionChanged">
             <ListViewItem Height="45" Width="155" Background="LightBlue" BorderBrush="Black" BorderThickness="1">
                 <StackPanel>
                     <TextBlock FontSize="15">Make reservation</TextBlock>
@@ -28,10 +28,17 @@
             </ListViewItem>
             <ListViewItem Height="45" Width="155" Background="LightBlue" BorderBrush="Black" BorderThickness="1">
                 <StackPanel>
+                    <TextBlock FontSize="15">All hotels</TextBlock>
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem Height="45" Width="155" Background="LightBlue" BorderBrush="Black" BorderThickness="1">
+                <StackPanel>
                     <TextBlock FontSize="15">Cancel reservation</TextBlock>
                 </StackPanel>
             </ListViewItem>
         </ListView>
+
+        <Frame Name="mainFrame" Margin="150,55,0,0" NavigationUIVisibility="Hidden"/>
 
         <Button Content="Logout" HorizontalAlignment="Left" Margin="707,2,0,0" VerticalAlignment="Top" FontSize="15" Height="51" Width="90" BorderThickness="0">
             <Button.Background>

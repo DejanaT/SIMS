@@ -43,7 +43,7 @@
     "Surname": "Grlica",
     "MobilePhone": "0215286397",
     "UserType": 2,
-    "Blocked": true,
+    "Blocked": false,
     "Id": "1012d6df-ca58-4df2-85cc-58b666960617",
     "Deleted": false
   }
