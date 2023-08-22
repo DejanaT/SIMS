@@ -58,8 +58,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AdministratorPages\AddApartments.xaml.cs">
+      <DependentUpon>AddApartments.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdministratorPages\AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdministratorPages\CreateHotel.xaml.cs">
+      <DependentUpon>CreateHotel.xaml</DependentUpon>
     </Compile>
     <Compile Include="AdministratorPages\CreateUser.xaml.cs">
       <DependentUpon>CreateUser.xaml</DependentUpon>
@@ -67,6 +73,8 @@
     <Compile Include="AdministratorPages\DisplayAllUsers.xaml.cs">
       <DependentUpon>DisplayAllUsers.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controller\ApartmentController.cs" />
+    <Compile Include="Controller\HotelController.cs" />
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="DTOs\LoginDTO.cs" />
     <Compile Include="GuestPages\GuestWindow.xaml.cs">
@@ -75,10 +83,23 @@
     <Compile Include="HostPages\HostWindow.xaml.cs">
       <DependentUpon>HostWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Enums\HotelStatus.cs" />
+    <Compile Include="Repository\ApartmentRepository.cs" />
+    <Compile Include="Repository\HotelRepository.cs" />
     <Compile Include="Repository\JsonSerializer.cs" />
     <Compile Include="Repository\UserRepository.cs" />
+    <Compile Include="Service\ApartmentService.cs" />
+    <Compile Include="Service\HotelService.cs" />
     <Compile Include="Service\UserService.cs" />
+    <Page Include="AdministratorPages\AddApartments.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AdministratorPages\AdminWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdministratorPages\CreateHotel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -163,6 +184,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\admin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\hotel.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

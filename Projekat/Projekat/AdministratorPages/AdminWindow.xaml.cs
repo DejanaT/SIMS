@@ -43,7 +43,7 @@ namespace Projekat.AdministratorPages
                     mainFrame.Navigate(new DisplayAllUsers());
                     break;
                 case 2:
-                    //dodati
+                    mainFrame.Navigate(new CreateHotel());
                     break;
             }
 

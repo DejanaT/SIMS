@@ -1,0 +1,50 @@
+[
+  {
+    "HotelCode": "1",
+    "HotelName": "Hotel Moskva",
+    "YearOfConstruction": 1989,
+    "Apartments": {
+      "Apartman1": {
+        "Name": "Apartman1",
+        "Description": "Prostran, lep",
+        "RoomsQuantity": 3,
+        "MaxNumberOfGuests": 9,
+        "Id": "a8fdab08-5f6e-4f21-bb99-525b7643c021",
+        "Deleted": false
+      },
+      "Apartman2": {
+        "Name": "Apartman2",
+        "Description": "Velik",
+        "RoomsQuantity": 3,
+        "MaxNumberOfGuests": 9,
+        "Id": "4611e6c0-d75a-46c0-bf65-d41fecef9b37",
+        "Deleted": false
+      }
+    },
+    "NumberOfStars": 4,
+    "HostJmbg": "123456789321",
+    "HotelStatus": 0,
+    "Id": "1832305b-2d45-478f-8aa0-6b9f8cc426a3",
+    "Deleted": false
+  },
+  {
+    "HotelCode": "2",
+    "HotelName": "Hotel Beograd",
+    "YearOfConstruction": 1989,
+    "Apartments": {
+      "Suite": {
+        "Name": "Suite",
+        "Description": "Large",
+        "RoomsQuantity": 2,
+        "MaxNumberOfGuests": 12,
+        "Id": "040659bd-4be2-451e-a012-bd32a09328dd",
+        "Deleted": false
+      }
+    },
+    "NumberOfStars": 5,
+    "HostJmbg": "123456789322",
+    "HotelStatus": 0,
+    "Id": "889b6fe4-448f-4b7a-a4e6-410bf36bca3d",
+    "Deleted": false
+  }
+]
