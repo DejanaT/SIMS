@@ -20,11 +20,35 @@ namespace Projekat.HostPages
     /// </summary>
     public partial class HostWindow : Window
     {
+        private User host = new User();
+
         public HostWindow(User user)
         {
             InitializeComponent();
             Name.Text = user.Name;
             Surname.Text = user.Surname;
+            host = user;
+        }
+
+        private void Menu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = Menu.SelectedIndex;
+            if (index == -1) return;
+            switch (index)
+            {
+
+                case 0:
+                    //dodati
+                    break;
+                case 1:
+                    mainFrame.Navigate(new DisplayAllHotels(host));
+                    break;
+                case 2:
+                    //dodati
+                    break;
+            }
+
+            Menu.SelectedIndex = -1;
         }
     }
 }

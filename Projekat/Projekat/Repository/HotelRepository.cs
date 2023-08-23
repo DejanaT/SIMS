@@ -1,4 +1,5 @@
 ﻿using Project.Model;
+using Projekat.Model.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,8 +63,14 @@ namespace Projekat.Repository
         public void DeleteHotel(Hotel hotel)
         {
             hotels = GetAll();
-            hotels.Remove(hotel);
-            SaveChanges(hotels);
+            Hotel cancelHotel = hotels.FirstOrDefault(h => h.Id == hotel.Id);
+
+            if (cancelHotel != null)
+            {
+                cancelHotel.HotelStatus = HotelStatus.Rejected;
+                cancelHotel.Deleted = true;
+                SaveChanges(hotels);
+            }
 
         }
 
@@ -91,6 +98,12 @@ namespace Projekat.Repository
                 }
                 UpdateHotel(hotel);
             }
+        }
+
+        public List<Hotel> GetAllByHostJmbg(string hostJmbg)
+        {
+            hotels = GetAll(); 
+            return hotels.Where(hotel => hotel.HostJmbg == hostJmbg).ToList();
         }
 
     }

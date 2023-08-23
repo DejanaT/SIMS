@@ -40,6 +40,9 @@
                 <SolidColorBrush Color="#27AE60" />
             </Button.Background>
         </Button>
-        
+
+        <Button Content="Skip" HorizontalAlignment="Left" Margin="502,360,0,0" VerticalAlignment="Top" FontSize="15" Width="127" Height="30" Click="Skip_Click">
+        </Button>
+
     </Grid>
 </Window>

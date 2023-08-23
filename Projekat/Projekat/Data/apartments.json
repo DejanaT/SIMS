@@ -22,5 +22,13 @@
     "MaxNumberOfGuests": 12,
     "Id": "040659bd-4be2-451e-a012-bd32a09328dd",
     "Deleted": false
+  },
+  {
+    "Name": "Soba2",
+    "Description": "Velika",
+    "RoomsQuantity": 1,
+    "MaxNumberOfGuests": 4,
+    "Id": "9515b8e4-a6d4-41b4-bd63-27ed39df2d2a",
+    "Deleted": false
   }
 ]

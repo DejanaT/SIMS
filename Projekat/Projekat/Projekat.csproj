@@ -88,6 +88,10 @@
     <Compile Include="GuestPages\GuestWindow.xaml.cs">
       <DependentUpon>GuestWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HostPages\ApartmentsConverter.cs" />
+    <Compile Include="HostPages\DisplayAllHotels.xaml.cs">
+      <DependentUpon>DisplayAllHotels.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HostPages\HostWindow.xaml.cs">
       <DependentUpon>HostWindow.xaml</DependentUpon>
     </Compile>
@@ -130,6 +134,10 @@
     <Page Include="GuestPages\GuestWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HostPages\DisplayAllHotels.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="HostPages\HostWindow.xaml">
       <SubType>Designer</SubType>

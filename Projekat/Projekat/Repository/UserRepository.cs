@@ -1,4 +1,5 @@
 ﻿using Project.Model;
+using Project.Model.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -91,6 +92,12 @@ namespace Projekat.Repository
                 users[index] = user;
                 SaveChanges(users);
             }
+        }
+
+        public List<User> GetUsersByType(UserType userType)
+        {
+            users = GetAllUsers();
+            return users.Where(user => user.UserType == userType).ToList();
         }
 
 

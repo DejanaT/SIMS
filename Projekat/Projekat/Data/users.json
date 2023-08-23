@@ -46,5 +46,17 @@
     "Blocked": false,
     "Id": "1012d6df-ca58-4df2-85cc-58b666960617",
     "Deleted": false
+  },
+  {
+    "JMBG": "9876543213211",
+    "Email": "mirko@gmail.com",
+    "Password": "Mirko123",
+    "Name": "Mirko",
+    "Surname": "Mirkovic",
+    "MobilePhone": "0649876543",
+    "UserType": 1,
+    "Blocked": false,
+    "Id": "6248537f-e164-431b-ab50-e292d1008603",
+    "Deleted": false
   }
 ]

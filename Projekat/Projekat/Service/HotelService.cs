@@ -1,4 +1,5 @@
 ﻿using Project.Model;
+using Projekat.Model.Enums;
 using Projekat.Repository;
 using System;
 using System.Collections.Generic;
@@ -66,6 +67,17 @@ namespace Projekat.Service
             {
                 MessageBox.Show("Hotel not found!");
             }
+        }
+
+        public List<Hotel> GetAllByHostJmbg(string hostJmbg)
+        {
+            return hotelRepository.GetAllByHostJmbg(hostJmbg);
+        }
+
+        public void AcceptHotel(Hotel hotel)
+        {
+            hotel.HotelStatus = HotelStatus.Accepted;
+            hotelRepository.UpdateHotel(hotel);
         }
     }
 }

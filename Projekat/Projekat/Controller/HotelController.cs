@@ -26,7 +26,7 @@ namespace Projekat.Controller
             hotelService.Create(h);
         }
 
-        public void DeleteUser(Hotel h)
+        public void DeleteHotel(Hotel h)
         {
             hotelService.DeleteHotel(h);
         }
@@ -39,6 +39,16 @@ namespace Projekat.Controller
         public void AddApartmentsToHotel(string code, List<Apartment> apartments)
         {
             hotelService.AddApartmentsToHotel(code, apartments);
+        }
+
+        public List<Hotel> GetAllByHostJmbg(string hostJmbg)
+        {
+            return hotelService.GetAllByHostJmbg(hostJmbg);
+        }
+
+        public void AcceptHotel(Hotel hotel)
+        {
+            hotelService.AcceptHotel(hotel);
         }
     }
 }

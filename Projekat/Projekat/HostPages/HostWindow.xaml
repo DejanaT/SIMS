@@ -8,6 +8,8 @@
         Title="Home Page" Height="500" Width="800" WindowStartupLocation="CenterScreen">
     <Grid Background="LightBlue">
 
+        <Frame Name="mainFrame" Margin="150,53,0,2" NavigationUIVisibility="Hidden"/>
+
         <Rectangle HorizontalAlignment="Left" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Height="55" Width="800"/>
         <Label Content="Welcome" FontSize="28" Margin="10,-2,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBlock Name="Name" Margin="150,3,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Text="TextBlock" FontSize="28"/>
@@ -15,7 +17,7 @@
 
         <Rectangle HorizontalAlignment="Left" Stroke="Black" StrokeThickness="1" VerticalAlignment="Top" Height="450" Width="150" Margin="0,53,0,0"/>
 
-        <ListView x:Name="Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Height="450" Width="150" Margin="0,53,0,0" BorderBrush="Black" Background="LightBlue">
+        <ListView x:Name="Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Height="450" Width="150" Margin="0,53,0,0" BorderBrush="Black" Background="LightBlue" SelectionChanged="Menu_SelectionChanged">
             <ListViewItem Height="45" Width="155" Background="LightBlue" BorderBrush="Black" BorderThickness="1">
                 <StackPanel>
                     <TextBlock FontSize="15">All reservations</TextBlock>
