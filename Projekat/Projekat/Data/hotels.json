@@ -42,9 +42,51 @@
       }
     },
     "NumberOfStars": 5,
-    "HostJmbg": "123456789322",
+    "HostJmbg": "9876543213211",
     "HotelStatus": 1,
     "Id": "889b6fe4-448f-4b7a-a4e6-410bf36bca3d",
+    "Deleted": false
+  },
+  {
+    "HotelCode": "3",
+    "HotelName": "Sirmium",
+    "YearOfConstruction": 1960,
+    "Apartments": {
+      "Soba2": {
+        "Name": "Soba2",
+        "Description": "Velika",
+        "RoomsQuantity": 1,
+        "MaxNumberOfGuests": 4,
+        "Id": "9515b8e4-a6d4-41b4-bd63-27ed39df2d2a",
+        "Deleted": false
+      }
+    },
+    "NumberOfStars": 4,
+    "HostJmbg": "9876543213211",
+    "HotelStatus": 1,
+    "Id": "82c5d914-5006-4a37-8525-4870c69620d6",
+    "Deleted": false
+  },
+  {
+    "HotelCode": "4",
+    "HotelName": "Park",
+    "YearOfConstruction": 1856,
+    "Apartments": {},
+    "NumberOfStars": 3,
+    "HostJmbg": "9876543213211",
+    "HotelStatus": 2,
+    "Id": "059735f6-0109-47c2-a623-cce5b85107e7",
+    "Deleted": true
+  },
+  {
+    "HotelCode": "6",
+    "HotelName": "Cosmo",
+    "YearOfConstruction": 1856,
+    "Apartments": {},
+    "NumberOfStars": 2,
+    "HostJmbg": "9876543213211",
+    "HotelStatus": 1,
+    "Id": "f7f4dd58-6f24-4514-98a9-bcd7e51c1ec4",
     "Deleted": false
   }
 ]

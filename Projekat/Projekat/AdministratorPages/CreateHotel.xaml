@@ -16,14 +16,15 @@
         <TextBox Name="HotelName" Margin="204,124,203,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="243" Height="22"/>
         <TextBox Name="YearOfConstruction" Margin="204,164,203,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="243" Height="22"/>
         <TextBox Name="NumberOfStars" Margin="204,204,203,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="243" Height="22"/>
-        <TextBox Name="HostJmbg" Margin="204,244,203,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="243" Height="22"/>
-        
+        <ComboBox Name="HostJmbgDropdown" Margin="204,244,203,0" VerticalAlignment="Top" Width="243" Height="22" SelectionChanged="Host_SelectionChanged"/>
+        <TextBox Name="NameSurname" Margin="204,284,203,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="243" Height="22" IsEnabled="False"/>
 
         <Label Content="Hotel code:" Margin="202,64,353,0" VerticalAlignment="Top"/>
         <Label Content="Name:" Margin="202,104,353,0" VerticalAlignment="Top"/>
         <Label Content="Year of construction:" Margin="202,144,277,0" VerticalAlignment="Top"/>
         <Label Content="Number of stars:" Margin="202,184,327,0" VerticalAlignment="Top"/>
         <Label Content="Host JMBG:" Margin="202,224,353,0" VerticalAlignment="Top"/>
+        <Label Content="Host:" Margin="202,264,353,0" VerticalAlignment="Top"/>
         
 
         <Button Content="Create" HorizontalAlignment="Left" Margin="273,355,0,0" VerticalAlignment="Top" FontSize="15" Width="100" Height="30" Click="Create_Click">

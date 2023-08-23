@@ -96,6 +96,13 @@ namespace Projekat.Service
             userRepository.UpdateUser(user);
         }
 
+        public List<string> GetHostJmbgs()
+        {
+            List<User> hostUsers = userRepository.GetUsersByType(UserType.Host);
+            List<string> hostsJmbgs = hostUsers.Select(user => user.JMBG).ToList();
+            return hostsJmbgs;
+        }
+
 
     }
 }

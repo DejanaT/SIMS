@@ -62,6 +62,11 @@ namespace Projekat.AdministratorPages
             DialogResult = true;
         }
 
+        private void Skip_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+        }
+
         private void ClearInputs()
         {
             Name.Text = string.Empty;

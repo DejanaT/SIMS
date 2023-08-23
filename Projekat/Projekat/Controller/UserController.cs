@@ -56,6 +56,11 @@ namespace Projekat.Controller
             userService.UnblockUser(user);
         }
 
+        public List<string> GetHostsJmbgs()
+        {
+           return userService.GetHostJmbgs();    
+        }
+
 
     }
 }

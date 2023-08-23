@@ -17,10 +17,15 @@ namespace Projekat.AdministratorPages
     {
         private ObservableCollection<Apartment> hotelApartments = new ObservableCollection<Apartment>();
         private HotelController hotelController = new HotelController();
+        private UserController userController = new UserController();
+        private List<string> hostJmbgs = new List<string>();
 
         public CreateHotel()
         {
             InitializeComponent();
+            hostJmbgs = userController.GetHostsJmbgs();
+            HostJmbgDropdown.ItemsSource = hostJmbgs;
+           
         }
 
         private void Create_Click(object sender, RoutedEventArgs e)
@@ -35,7 +40,7 @@ namespace Projekat.AdministratorPages
                     YearOfConstruction = int.Parse(YearOfConstruction.Text),
                     Apartments = new Dictionary<string, Apartment>(),
                     NumberOfStars = int.Parse(NumberOfStars.Text),
-                    HostJmbg = HostJmbg.Text
+                    HostJmbg = HostJmbgDropdown.Text
                 };
                 //prozor za dodavanje apartmana
                 AddApartments addAp = new AddApartments(hotelApartments.ToList(), newHotel);
@@ -56,7 +61,7 @@ namespace Projekat.AdministratorPages
         {
             if (String.IsNullOrEmpty(HotelCode.Text) || String.IsNullOrEmpty(HotelName.Text) ||
                 String.IsNullOrEmpty(YearOfConstruction.Text) || String.IsNullOrEmpty(NumberOfStars.Text) ||
-                String.IsNullOrEmpty(HostJmbg.Text))
+                String.IsNullOrEmpty(HostJmbgDropdown.Text))
             {
                 MessageBox.Show("Error: you must fill in all fields");
                 return false;
@@ -81,6 +86,20 @@ namespace Projekat.AdministratorPages
             }
 
             return true;
+        }
+
+        private void Host_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (HostJmbgDropdown.SelectedItem != null)
+            {
+                string selectedJmbg = HostJmbgDropdown.SelectedItem.ToString();
+                User selectedUser = userController.FindByJmbg(selectedJmbg);
+
+                if (selectedUser != null)
+                {
+                    NameSurname.Text = $"{selectedUser.Name} {selectedUser.Surname}";
+                }
+            }
         }
 
     }
