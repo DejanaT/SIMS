@@ -50,6 +50,11 @@ namespace Projekat.Service
             hotelRepository.DeleteHotel(hotel);
         }
 
+        internal void Update(Hotel selectedHotel)
+        {
+            hotelRepository.UpdateHotel(selectedHotel);
+        }
+
         public bool IsHotelExist(Hotel hotel)
         {
             List<Hotel> hotels = GetHotels();

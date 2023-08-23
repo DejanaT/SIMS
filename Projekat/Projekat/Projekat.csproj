@@ -88,12 +88,18 @@
     <Compile Include="GuestPages\GuestWindow.xaml.cs">
       <DependentUpon>GuestWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HostPages\AddApartments.xaml.cs">
+      <DependentUpon>AddApartments.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HostPages\ApartmentsConverter.cs" />
     <Compile Include="HostPages\DisplayAllHotels.xaml.cs">
       <DependentUpon>DisplayAllHotels.xaml</DependentUpon>
     </Compile>
     <Compile Include="HostPages\HostWindow.xaml.cs">
       <DependentUpon>HostWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HostPages\HotelsApartments.xaml.cs">
+      <DependentUpon>HotelsApartments.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Enums\HotelStatus.cs" />
     <Compile Include="Repository\ApartmentRepository.cs" />
@@ -135,11 +141,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="HostPages\AddApartments.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="HostPages\DisplayAllHotels.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="HostPages\HostWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HostPages\HotelsApartments.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

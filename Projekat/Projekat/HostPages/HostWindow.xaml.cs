@@ -44,7 +44,7 @@ namespace Projekat.HostPages
                     mainFrame.Navigate(new DisplayAllHotels(host));
                     break;
                 case 2:
-                    //dodati
+                    mainFrame.Navigate(new HotelsApartments(host));
                     break;
             }
 

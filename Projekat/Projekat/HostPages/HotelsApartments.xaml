@@ -1,0 +1,34 @@
+﻿<Page x:Class="Projekat.HostPages.HotelsApartments"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Projekat.HostPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="445" d:DesignWidth="650"
+      Title="All Hotels">
+    <Page.Resources>
+        <local:ApartmentsConverter x:Key="ApartmentsConverter" />
+    </Page.Resources>
+
+    <Grid Background="LightBlue">
+        <Frame x:Name="contentFrame" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,53,0,0" Height="500"/>
+        <Rectangle HorizontalAlignment="Left" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Height="55" Width="800"/>
+
+        <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" Margin="0,50,0,0" CanUserAddRows="False" CanUserSortColumns="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Hotel code" Binding="{Binding HotelCode}"/>
+                <DataGridTextColumn Header="Hotel name" Binding="{Binding HotelName}"/>
+                <DataGridTextColumn Header="Apartments" Width="*" Binding="{Binding Apartments, Converter={StaticResource ApartmentsConverter}}" />
+                <DataGridTemplateColumn Header="Add apartment">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Add" Click="AddButton_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Page>
