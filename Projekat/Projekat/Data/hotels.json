@@ -1,92 +1,89 @@
 [
   {
     "HotelCode": "1",
-    "HotelName": "Hotel Moskva",
-    "YearOfConstruction": 1989,
-    "Apartments": {
-      "Apartman1": {
-        "Name": "Apartman1",
-        "Description": "Prostran, lep",
-        "RoomsQuantity": 3,
-        "MaxNumberOfGuests": 9,
-        "Id": "a8fdab08-5f6e-4f21-bb99-525b7643c021",
-        "Deleted": false
-      },
-      "Apartman2": {
-        "Name": "Apartman2",
-        "Description": "Velik",
-        "RoomsQuantity": 3,
-        "MaxNumberOfGuests": 9,
-        "Id": "4611e6c0-d75a-46c0-bf65-d41fecef9b37",
-        "Deleted": false
-      }
-    },
+    "HotelName": "Hilton",
+    "YearOfConstruction": 1968,
+    "Apartments": {},
     "NumberOfStars": 4,
-    "HostJmbg": "123456789321",
+    "HostJmbg": "9876543213211",
     "HotelStatus": 0,
-    "Id": "1832305b-2d45-478f-8aa0-6b9f8cc426a3",
+    "Id": "a2ed3a31-464d-4c59-86d9-c7a79ab3820b",
     "Deleted": false
   },
   {
     "HotelCode": "2",
-    "HotelName": "Hotel Beograd",
-    "YearOfConstruction": 1989,
+    "HotelName": "Balkan",
+    "YearOfConstruction": 1924,
     "Apartments": {
-      "Suite": {
-        "Name": "Suite",
-        "Description": "Large",
-        "RoomsQuantity": 2,
+      "Apartman1": {
+        "Name": "Apartman1",
+        "Description": "Prostran, veliki",
+        "RoomsQuantity": 3,
         "MaxNumberOfGuests": 12,
-        "Id": "040659bd-4be2-451e-a012-bd32a09328dd",
+        "Id": "9f67545e-74d5-4dd4-96ca-1d6043f33602",
+        "Deleted": false
+      },
+      "Apartman2": {
+        "Name": "Apartman2",
+        "Description": "Mali",
+        "RoomsQuantity": 1,
+        "MaxNumberOfGuests": 2,
+        "Id": "43fc1696-3d58-4c7f-b2ce-f6ed0886a7c6",
+        "Deleted": false
+      }
+    },
+    "NumberOfStars": 2,
+    "HostJmbg": "9876543213211",
+    "HotelStatus": 1,
+    "Id": "9ecf7fc9-6e12-4aea-85a7-2b2abf4400cb",
+    "Deleted": false
+  },
+  {
+    "HotelCode": "3",
+    "HotelName": "Hotel Moskva",
+    "YearOfConstruction": 1953,
+    "Apartments": {
+      "Apartman3": {
+        "Name": "Apartman3",
+        "Description": "Sa balkonom",
+        "RoomsQuantity": 2,
+        "MaxNumberOfGuests": 4,
+        "Id": "32f3ad1b-5f24-45ff-825b-4425a11b8289",
+        "Deleted": false
+      },
+      "Apartman5": {
+        "Name": "Apartman5",
+        "Description": "Ukljucen dorucak",
+        "RoomsQuantity": 1,
+        "MaxNumberOfGuests": 3,
+        "Id": "18c013be-a78d-4726-8546-7fdd1915009f",
         "Deleted": false
       }
     },
     "NumberOfStars": 5,
     "HostJmbg": "9876543213211",
     "HotelStatus": 1,
-    "Id": "889b6fe4-448f-4b7a-a4e6-410bf36bca3d",
+    "Id": "e28ce980-595f-49f9-9feb-7c68e065e7f6",
     "Deleted": false
   },
   {
-    "HotelCode": "3",
-    "HotelName": "Sirmium",
-    "YearOfConstruction": 1960,
+    "HotelCode": "4",
+    "HotelName": "Tesin konak",
+    "YearOfConstruction": 1875,
     "Apartments": {
-      "Soba2": {
-        "Name": "Soba2",
-        "Description": "Velika",
-        "RoomsQuantity": 1,
-        "MaxNumberOfGuests": 4,
-        "Id": "9515b8e4-a6d4-41b4-bd63-27ed39df2d2a",
+      "Apartman4": {
+        "Name": "Apartman4",
+        "Description": "Staromodan",
+        "RoomsQuantity": 3,
+        "MaxNumberOfGuests": 9,
+        "Id": "46ec4d01-4ba3-4aee-9829-adb24caec4dd",
         "Deleted": false
       }
     },
     "NumberOfStars": 4,
     "HostJmbg": "9876543213211",
-    "HotelStatus": 1,
-    "Id": "82c5d914-5006-4a37-8525-4870c69620d6",
-    "Deleted": false
-  },
-  {
-    "HotelCode": "4",
-    "HotelName": "Park",
-    "YearOfConstruction": 1856,
-    "Apartments": {},
-    "NumberOfStars": 3,
-    "HostJmbg": "9876543213211",
     "HotelStatus": 2,
-    "Id": "059735f6-0109-47c2-a623-cce5b85107e7",
+    "Id": "134b498d-e537-488f-b7ae-25acdb59c445",
     "Deleted": true
-  },
-  {
-    "HotelCode": "6",
-    "HotelName": "Cosmo",
-    "YearOfConstruction": 1856,
-    "Apartments": {},
-    "NumberOfStars": 2,
-    "HostJmbg": "9876543213211",
-    "HotelStatus": 1,
-    "Id": "f7f4dd58-6f24-4514-98a9-bcd7e51c1ec4",
-    "Deleted": false
   }
 ]

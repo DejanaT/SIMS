@@ -50,5 +50,10 @@ namespace Projekat.Controller
         {
             hotelService.AcceptHotel(hotel);
         }
+
+        public void Update(Hotel selectedHotel)
+        {
+            hotelService.Update(selectedHotel);
+        }
     }
 }
