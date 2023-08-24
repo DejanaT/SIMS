@@ -55,5 +55,40 @@ namespace Projekat.Controller
         {
             hotelService.Update(selectedHotel);
         }
+
+        public IEnumerable<Hotel> GetHotelsByCode(string query)
+        {
+            return hotelService.GetHotelsByCode(query);
+        }
+
+        public IEnumerable<Hotel> GetHotelsByName(string query)
+        {
+            return hotelService.GetHotelsByName(query);
+        }
+
+        public IEnumerable<Hotel> GetHotelsByStars(string query)
+        {
+            return hotelService.GetHotelsByStars(query);
+        }
+
+        public IEnumerable<Hotel> GetHotelsByNumberOfRooms(IEnumerable<Hotel> hotels, int numberOfRooms)
+        {
+            return hotelService.GetHotelsByNumberOfRooms(hotels, numberOfRooms);
+        }
+
+        public IEnumerable<Hotel> GetHotelsByNumberOfGuests(IEnumerable<Hotel> hotels, int numberOfGuests)
+        {
+            return hotelService.GetHotelsByNumberOfGuests(hotels, numberOfGuests);
+        }
+
+        public IEnumerable<Hotel> RoomsAndGuestsAnd(IEnumerable<Hotel> hotels, int numberOfRooms, int numberOfGuests)
+        {
+            return hotelService.RoomsAndGuestsAnd(hotels, numberOfRooms, numberOfGuests);
+        }
+
+        public IEnumerable<Hotel> RoomsAndGuestsOr(IEnumerable<Hotel> hotels, int numberOfRooms, int numberOfGuests)
+        {
+            return hotelService.RoomsAndGuestsOr(hotels, numberOfRooms, numberOfGuests);
+        }
     }
 }

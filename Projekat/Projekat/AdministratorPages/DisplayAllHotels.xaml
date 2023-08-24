@@ -17,22 +17,37 @@
 
         <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" Margin="0,50,0,0" CanUserAddRows="False" CanUserSortColumns="False" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Hotel code" Binding="{Binding HotelCode}"/>
-                <DataGridTextColumn Header="Hotel name" Binding="{Binding HotelName}"/>
-                <DataGridTextColumn Header="Year of construction" Binding="{Binding YearOfConstruction}"/>
+                <DataGridTextColumn Header="Hotel code" Binding="{Binding HotelCode}" Width="Auto"/>
+                <DataGridTextColumn Header="Hotel name" Binding="{Binding HotelName}" Width="Auto"/>
+                <DataGridTextColumn Header="Year of construction" Binding="{Binding YearOfConstruction}" Width="Auto"/>
                 <DataGridTextColumn Header="Apartments" Width="*" Binding="{Binding Apartments, Converter={StaticResource ApartmentsConverter}}" />
-                <DataGridTextColumn Header="Number of stars" Binding="{Binding NumberOfStars}"/>
-                <DataGridTextColumn Header="Hotel status" Binding="{Binding HotelStatus}"/>
+                <DataGridTextColumn Header="Number of stars" Binding="{Binding NumberOfStars}" Width="Auto"/>
+                <DataGridTextColumn Header="Hotel status" Binding="{Binding HotelStatus}" Width="Auto"/>
             </DataGrid.Columns>
         </DataGrid>
 
         <Label Content="Sort hotels:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="82" Margin="4,13,0,0" FontSize="14"/>
-        <ComboBox x:Name="sortComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="76,17,0,0" SelectionChanged="Sort_SelectionChanged">
+        <ComboBox x:Name="sortComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="119" Margin="76,17,0,0" SelectionChanged="Sort_SelectionChanged">
             <ComboBoxItem Content="Name Asc" Tag="Name Asc"/>
             <ComboBoxItem Content="Name Desc" Tag="Name Desc"/>
             <ComboBoxItem Content="Stars 1-5" Tag="Stars 1-5"/>
             <ComboBoxItem Content="Stars 5-1" Tag="Stars 5-1"/>
         </ComboBox>
 
+        <Label Content="Search by:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="114" Margin="198,13,0,0" FontSize="14"/>
+        <ComboBox x:Name="searchComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Margin="270,17,0,0" SelectionChanged="Search_SelectionChanged">
+            <ComboBoxItem Content="Hotel code" Tag="HotelCode"/>
+            <ComboBoxItem Content="Hotel name" Tag="HotelName"/>
+            <ComboBoxItem Content="Stars" Tag="Stars"/>
+            <ComboBoxItem Content="Apartments" Tag="Apartments"/>
+        </ComboBox>
+
+        <TextBox Name="Search" VerticalAlignment="Top" Margin="507,17,4,0" FontSize="14" TextChanged="Search_TextChanged"/>
+
+        <ComboBox x:Name="apartmentSearchComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Margin="388,17,0,0" Visibility="Collapsed" SelectionChanged="Apartment_SelectionChanged">
+            <ComboBoxItem Content="Number of rooms" Tag="NumberOfRooms"/>
+            <ComboBoxItem Content="Number of guests" Tag="NumberOfGuests"/>
+            <ComboBoxItem Content="Rooms + guests" Tag="NumberOfRoomsAndGuests"/>
+        </ComboBox>
     </Grid>
 </Page>

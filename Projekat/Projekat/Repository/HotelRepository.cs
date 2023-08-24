@@ -106,5 +106,43 @@ namespace Projekat.Repository
             return hotels.Where(hotel => hotel.HostJmbg == hostJmbg).ToList();
         }
 
+        public IEnumerable<Hotel> GetHotelsByCode(string query)
+        {
+            hotels = GetAll();
+            return hotels.Where(h => h.HotelCode.ToLower().Contains(query));
+        }
+
+        public IEnumerable<Hotel> GetHotelsByName(string query)
+        {
+            hotels = GetAll();
+            return hotels.Where(h => h.HotelName.ToLower().Contains(query));
+        }
+
+        public IEnumerable<Hotel> GetHotelsByStars(string query)
+        {
+            hotels = GetAll();
+            return hotels.Where(h => h.NumberOfStars.ToString().Contains(query));
+        }
+
+        public IEnumerable<Hotel> GetHotelsByNumberOfRooms(IEnumerable<Hotel> hotels, int numberOfRooms)
+        {
+            return hotels.Where(hotel => hotel.Apartments.Values.Any(apartment => apartment.RoomsQuantity == numberOfRooms));
+        }
+
+        public IEnumerable<Hotel> GetHotelsByNumberOfGuests(IEnumerable<Hotel> hotels, int numberOfGuests)
+        {
+            return hotels.Where(hotel => hotel.Apartments.Values.Any(apartment => apartment.MaxNumberOfGuests == numberOfGuests));
+        }
+
+        public IEnumerable<Hotel> RoomsAndGuestsAnd(IEnumerable<Hotel> hotels, int numberOfRooms, int numberOfGuests)
+        {
+            return hotels.Where(hotel => hotel.Apartments.Values.Any(apartment => apartment.RoomsQuantity == numberOfRooms && apartment.MaxNumberOfGuests == numberOfGuests));
+        }
+
+        public IEnumerable<Hotel> RoomsAndGuestsOr(IEnumerable<Hotel> hotels, int numberOfRooms, int numberOfGuests)
+        {
+            return hotels.Where(hotel => hotel.Apartments.Values.Any(apartment => apartment.RoomsQuantity == numberOfRooms || apartment.MaxNumberOfGuests == numberOfGuests));
+        }
+
     }
 }
