@@ -84,5 +84,40 @@ namespace Projekat.Service
             hotel.HotelStatus = HotelStatus.Accepted;
             hotelRepository.UpdateHotel(hotel);
         }
+
+        public IEnumerable<Hotel> GetHotelsByCode(string query)
+        {
+            return hotelRepository.GetHotelsByCode(query);
+        }
+
+        public IEnumerable<Hotel> GetHotelsByName(string query)
+        {
+            return hotelRepository.GetHotelsByName(query);
+        }
+
+        public IEnumerable<Hotel> GetHotelsByStars(string query)
+        {
+            return hotelRepository.GetHotelsByStars(query);
+        }
+
+        public IEnumerable<Hotel> GetHotelsByNumberOfRooms(IEnumerable<Hotel> hotels, int numberOfRooms)
+        {
+            return hotelRepository.GetHotelsByNumberOfRooms(hotels, numberOfRooms);
+        }
+
+        public IEnumerable<Hotel> GetHotelsByNumberOfGuests(IEnumerable<Hotel> hotels, int numberOfGuests)
+        {
+            return hotelRepository.GetHotelsByNumberOfGuests(hotels, numberOfGuests);
+        }
+
+        public IEnumerable<Hotel> RoomsAndGuestsAnd(IEnumerable<Hotel> hotels, int numberOfRooms, int numberOfGuests)
+        {
+            return hotelRepository.RoomsAndGuestsAnd(hotels, numberOfRooms, numberOfGuests);
+        }
+
+        public IEnumerable<Hotel> RoomsAndGuestsOr(IEnumerable<Hotel> hotels, int numberOfRooms, int numberOfGuests)
+        {
+            return hotelRepository.RoomsAndGuestsOr(hotels, numberOfRooms, numberOfGuests);
+        }
     }
 }
