@@ -8,12 +8,13 @@
         Title="Home Page" Height="500" Width="800" WindowStartupLocation="CenterScreen">
     <Grid Background="LightBlue">
 
-        <Frame Name="mainFrame" Margin="150,53,0,2" NavigationUIVisibility="Hidden"/>
 
         <Rectangle HorizontalAlignment="Left" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Height="55" Width="800"/>
         <Label Content="Welcome" FontSize="28" Margin="10,-2,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBlock Name="Name" Margin="150,3,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Text="TextBlock" FontSize="28"/>
         <TextBlock Name="Surname" Margin="260,3,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Text="TextBlock" FontSize="28"/>
+        <Label Content="What would you like to do?" Margin="369,306,-9,0"  VerticalAlignment="Top" FontSize="12"/>
+        <Image Source="C:\Users\dejana\Desktop\SIMS\Projekat\Projekat\Images/host.png" Stretch="Fill" VerticalAlignment="Top" HorizontalAlignment="Left" Height="219" Width="236" Margin="332,98,0,0"/>
 
         <Rectangle HorizontalAlignment="Left" Stroke="Black" StrokeThickness="1" VerticalAlignment="Top" Height="450" Width="150" Margin="0,53,0,0"/>
 
@@ -35,9 +36,7 @@
             </ListViewItem>
         </ListView>
 
-        <Label Content="What would you like to do?" Margin="369,306,-9,0"  VerticalAlignment="Top" FontSize="12"/>
-        <Image Source="C:\Users\dejana\Desktop\SIMS\Projekat\Projekat\Images/host.png" Stretch="Fill" VerticalAlignment="Top" HorizontalAlignment="Left" Height="219" Width="236" Margin="332,98,0,0"/>
-
+        <Frame Name="mainFrame" Margin="150,55,0,0" NavigationUIVisibility="Hidden"/>
 
         <Button Content="Logout" HorizontalAlignment="Left" Margin="707,2,0,0" VerticalAlignment="Top" FontSize="15" Height="51" Width="90" BorderThickness="0" Click="Logout_Click">
             <Button.Background>
