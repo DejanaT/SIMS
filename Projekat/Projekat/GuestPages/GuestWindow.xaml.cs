@@ -43,7 +43,7 @@ namespace Projekat.GuestPages
                     mainFrame.Navigate(new CreateReservation(guest));
                     break;
                 case 1:
-                   //dodati
+                    mainFrame.Navigate(new MyReservations(guest));
                     break;
                 case 2:
                     mainFrame.Navigate(new DisplayAllHotels());

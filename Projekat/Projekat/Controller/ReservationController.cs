@@ -1,4 +1,5 @@
 ﻿using Projekat.Model;
+using Projekat.Model.Enums;
 using Projekat.Service;
 using System;
 using System.Collections.Generic;
@@ -29,6 +30,16 @@ namespace Projekat.Controller
         public bool IsReservationExist(Reservation r)
         {
             return reservationService.IsReservationExist(r);
+        }
+
+        public List<Reservation> GetAllByGuestJmbg(string guestJmbg)
+        {
+            return reservationService.GetAllByGuestJmbg(guestJmbg);
+        }
+
+        public List<Reservation> GetByStatus(string status)
+        {
+            return reservationService.GetByStatus(status);
         }
     }
 }

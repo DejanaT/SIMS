@@ -92,6 +92,9 @@
     <Compile Include="GuestPages\CreateReservation.xaml.cs">
       <DependentUpon>CreateReservation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GuestPages\MyReservations.xaml.cs">
+      <DependentUpon>MyReservations.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HostPages\AddApartments.xaml.cs">
       <DependentUpon>AddApartments.xaml</DependentUpon>
     </Compile>
@@ -150,6 +153,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GuestPages\CreateReservation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GuestPages\MyReservations.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,4 +1,5 @@
 ﻿using Projekat.Model;
+using Projekat.Model.Enums;
 using Projekat.Repository;
 using System;
 using System.Collections.Generic;
@@ -48,6 +49,16 @@ namespace Projekat.Service
         {
             List<Reservation> reservations = GetReservations();
             return reservations.Any(res => res.ReservationDate == r.ReservationDate && res.ApartmentName == r.ApartmentName);
+        }
+
+        public List<Reservation> GetAllByGuestJmbg(string guestJmbg)
+        {
+            return reservationRepository.GetAllByGuestJmbg(guestJmbg);
+        }
+
+        public List<Reservation> GetByStatus(string status)
+        {
+            return reservationRepository.GetByStatus(status);
         }
 
 
