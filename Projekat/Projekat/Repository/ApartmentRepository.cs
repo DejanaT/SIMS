@@ -58,12 +58,25 @@ namespace Projekat.Repository
             SaveChanges(apartments);
         }
 
-        public void DeleteHotel(Apartment apartment)
+        public void DeleteApartment(Apartment apartment)
         {
             apartments = GetAll();
             apartments.Remove(apartment);
             SaveChanges(apartments);
 
+        }
+
+        public void UpdateApartment(Apartment apartment)
+        {
+            apartments = GetAll();
+
+            Apartment existingApartment = apartments.FirstOrDefault(a => a.Name.Equals(apartment.Name));
+            if (existingApartment != null)
+            {
+                int index = apartments.IndexOf(existingApartment);
+                apartments[index] = apartment;
+                SaveChanges(apartments);
+            }
         }
 
     }

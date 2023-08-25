@@ -46,13 +46,18 @@ namespace Projekat.Service
 
         public void DeleteApartment(Apartment apartment)
         {
-            apartmentRepository.DeleteHotel(apartment);
+            apartmentRepository.DeleteApartment(apartment);
         }
 
         public bool IsApartmentExist(Apartment a)
         {
             List<Apartment> apartments = GetApartments();
             return apartments.Any(app => a.Name.Equals(app.Name));
+        }
+
+        public void Update(Apartment a)
+        {
+            apartmentRepository.UpdateApartment(a);
         }
     }
 }

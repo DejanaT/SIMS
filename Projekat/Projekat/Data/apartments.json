@@ -4,6 +4,7 @@
     "Description": "Prostran, veliki",
     "RoomsQuantity": 3,
     "MaxNumberOfGuests": 12,
+    "Reservations": null,
     "Id": "9f67545e-74d5-4dd4-96ca-1d6043f33602",
     "Deleted": false
   },
@@ -12,6 +13,7 @@
     "Description": "Mali",
     "RoomsQuantity": 1,
     "MaxNumberOfGuests": 2,
+    "Reservations": null,
     "Id": "43fc1696-3d58-4c7f-b2ce-f6ed0886a7c6",
     "Deleted": false
   },
@@ -20,6 +22,26 @@
     "Description": "Sa balkonom",
     "RoomsQuantity": 2,
     "MaxNumberOfGuests": 4,
+    "Reservations": [
+      {
+        "GuestJmbg": "1234569632525",
+        "ApartmentName": "Apartman3",
+        "ReservationDate": "2023-08-26",
+        "Status": 1,
+        "ReasonReject": "",
+        "Id": "8e3668ee-9c45-4086-a9cd-43c4c052717e",
+        "Deleted": false
+      },
+      {
+        "GuestJmbg": "1234569632525",
+        "ApartmentName": "Apartman3",
+        "ReservationDate": "2023-08-27",
+        "Status": 1,
+        "ReasonReject": "",
+        "Id": "b0befa94-1959-4246-866a-c6d1676feaec",
+        "Deleted": false
+      }
+    ],
     "Id": "32f3ad1b-5f24-45ff-825b-4425a11b8289",
     "Deleted": false
   },
@@ -28,6 +50,7 @@
     "Description": "Staromodan",
     "RoomsQuantity": 3,
     "MaxNumberOfGuests": 9,
+    "Reservations": null,
     "Id": "46ec4d01-4ba3-4aee-9829-adb24caec4dd",
     "Deleted": false
   },
@@ -36,7 +59,27 @@
     "Description": "Ukljucen dorucak",
     "RoomsQuantity": 1,
     "MaxNumberOfGuests": 3,
+    "Reservations": null,
     "Id": "18c013be-a78d-4726-8546-7fdd1915009f",
+    "Deleted": false
+  },
+  {
+    "Name": "Apartman6",
+    "Description": "Sa pogledom na more",
+    "RoomsQuantity": 2,
+    "MaxNumberOfGuests": 6,
+    "Reservations": [
+      {
+        "GuestJmbg": "1234569632525",
+        "ApartmentName": "Apartman6",
+        "ReservationDate": "2023-08-27",
+        "Status": 1,
+        "ReasonReject": "",
+        "Id": "b99353cc-821e-44a7-a841-df109d3deb61",
+        "Deleted": false
+      }
+    ],
+    "Id": "03af76b7-6fb5-425c-a6ed-5cce4d267cf1",
     "Deleted": false
   }
 ]

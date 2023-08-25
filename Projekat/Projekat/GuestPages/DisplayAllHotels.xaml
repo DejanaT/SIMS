@@ -17,11 +17,11 @@
 
         <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" Margin="0,50,0,0" CanUserAddRows="False" CanUserSortColumns="False" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Hotel code" Binding="{Binding HotelCode}" Width="Auto"/>
-                <DataGridTextColumn Header="Hotel name" Binding="{Binding HotelName}" Width="Auto"/>
-                <DataGridTextColumn Header="Year of construction" Binding="{Binding YearOfConstruction}" Width="Auto"/>
+                <DataGridTextColumn Header="Code" Binding="{Binding HotelCode}" Width="Auto"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding HotelName}" Width="Auto"/>
+                <DataGridTextColumn Header="Year of constr." Binding="{Binding YearOfConstruction}" Width="Auto"/>
                 <DataGridTextColumn Header="Apartments" Width="*" Binding="{Binding Apartments, Converter={StaticResource ApartmentsConverter}}" />
-                <DataGridTextColumn Header="Number of stars" Binding="{Binding NumberOfStars}" Width="Auto"/>
+                <DataGridTextColumn Header="Stars" Binding="{Binding NumberOfStars}" Width="Auto"/>
                 <DataGridTextColumn Header="Hotel status" Binding="{Binding HotelStatus}" Width="Auto"/>
             </DataGrid.Columns>
         </DataGrid>

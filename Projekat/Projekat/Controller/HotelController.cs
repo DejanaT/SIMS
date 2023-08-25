@@ -90,5 +90,10 @@ namespace Projekat.Controller
         {
             return hotelService.RoomsAndGuestsOr(hotels, numberOfRooms, numberOfGuests);
         }
+
+        public void UpdateApartments(Hotel hotel)
+        {
+            hotelService.UpdateApartments(hotel);
+        }
     }
 }

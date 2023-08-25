@@ -144,5 +144,26 @@ namespace Projekat.Repository
             return hotels.Where(hotel => hotel.Apartments.Values.Any(apartment => apartment.RoomsQuantity == numberOfRooms || apartment.MaxNumberOfGuests == numberOfGuests));
         }
 
+        public void UpdateApartments(Hotel hotel)
+        {
+            hotels = GetAll();
+
+            var hotel1 = hotels.FirstOrDefault(h => h.Id == hotel.Id);
+
+            if (hotel1 != null)
+            {
+                foreach (var apartment in hotel.Apartments.Values)
+                {
+                    if (hotel1.Apartments.ContainsKey(apartment.Name))
+                    {
+                        var existingApartment = hotel1.Apartments[apartment.Name];
+                        existingApartment.Reservations = apartment.Reservations;
+                    }
+                }
+
+                SaveChanges(hotels);
+            }
+        }
+
     }
 }

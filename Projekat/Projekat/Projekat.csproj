@@ -79,6 +79,7 @@
     </Compile>
     <Compile Include="Controller\ApartmentController.cs" />
     <Compile Include="Controller\HotelController.cs" />
+    <Compile Include="Controller\ReservationController.cs" />
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="DTOs\LoginDTO.cs" />
     <Compile Include="GuestPages\ApartmentsConverter.cs" />
@@ -87,6 +88,9 @@
     </Compile>
     <Compile Include="GuestPages\GuestWindow.xaml.cs">
       <DependentUpon>GuestWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GuestPages\CreateReservation.xaml.cs">
+      <DependentUpon>CreateReservation.xaml</DependentUpon>
     </Compile>
     <Compile Include="HostPages\AddApartments.xaml.cs">
       <DependentUpon>AddApartments.xaml</DependentUpon>
@@ -102,12 +106,16 @@
       <DependentUpon>HotelsApartments.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Enums\HotelStatus.cs" />
+    <Compile Include="Model\Enums\ReservationStatus.cs" />
+    <Compile Include="Model\Reservation.cs" />
     <Compile Include="Repository\ApartmentRepository.cs" />
     <Compile Include="Repository\HotelRepository.cs" />
     <Compile Include="Repository\JsonSerializer.cs" />
+    <Compile Include="Repository\ReservationRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Service\ApartmentService.cs" />
     <Compile Include="Service\HotelService.cs" />
+    <Compile Include="Service\ReservationService.cs" />
     <Compile Include="Service\UserService.cs" />
     <Page Include="AdministratorPages\AddApartments.xaml">
       <SubType>Designer</SubType>
@@ -138,6 +146,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="GuestPages\GuestWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GuestPages\CreateReservation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
