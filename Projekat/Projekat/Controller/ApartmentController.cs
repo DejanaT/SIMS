@@ -26,7 +26,7 @@ namespace Projekat.Controller
             apartmentService.Create(a);
         }
 
-        public void DeleteUser(Apartment a)
+        public void DeleteApartment(Apartment a)
         {
             apartmentService.DeleteApartment(a);
         }
@@ -34,6 +34,11 @@ namespace Projekat.Controller
         public bool IsApartmentExist(Apartment a)
         {
             return apartmentService.IsApartmentExist(a);
+        }
+
+        public void Update(Apartment a)
+        {
+            apartmentService.Update(a);
         }
     }
 }

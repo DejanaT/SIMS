@@ -20,11 +20,16 @@ namespace Projekat.GuestPages
     /// </summary>
     public partial class GuestWindow : Window
     {
+
+        private User guest = new User();
+
         public GuestWindow(User user)
         {
             InitializeComponent();
             Name.Text = user.Name;
             Surname.Text = user.Surname;
+            guest = user;
+
         }
 
         private void Menu_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -35,7 +40,7 @@ namespace Projekat.GuestPages
             {
 
                 case 0:
-                    //dodati
+                    mainFrame.Navigate(new CreateReservation(guest));
                     break;
                 case 1:
                    //dodati

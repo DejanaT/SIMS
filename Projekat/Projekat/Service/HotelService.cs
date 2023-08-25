@@ -119,5 +119,10 @@ namespace Projekat.Service
         {
             return hotelRepository.RoomsAndGuestsOr(hotels, numberOfRooms, numberOfGuests);
         }
+
+        public void UpdateApartments(Hotel hotel)
+        {
+            hotelRepository.UpdateApartments(hotel);
+        }
     }
 }
