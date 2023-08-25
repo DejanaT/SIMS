@@ -1,4 +1,5 @@
 ﻿using Projekat.Model;
+using Projekat.Model.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +44,18 @@ namespace Projekat.Repository
             reservations = GetAll();
             reservations.Add(reservation);
             SaveChanges(reservations);
+        }
+
+        public List<Reservation> GetAllByGuestJmbg(string guestJmbg)
+        {
+            reservations = GetAll();
+            return reservations.Where(r => r.GuestJmbg == guestJmbg).ToList();
+        }
+
+        public List<Reservation> GetByStatus(string status)
+        {
+            reservations = GetAll();
+            return reservations.Where(r => r.Status.ToString() == status).ToList();
         }
     }
 }

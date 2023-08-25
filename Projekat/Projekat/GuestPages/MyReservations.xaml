@@ -1,0 +1,54 @@
+﻿<Page x:Class="Projekat.GuestPages.MyReservations"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Projekat.GuestPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="445" d:DesignWidth="650"
+      Title="All reservations">
+
+    <Grid Background="LightBlue">
+        <Frame x:Name="contentFrame" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,53,0,0" Height="500"/>
+        <Rectangle HorizontalAlignment="Left" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Height="55" Width="800"/>
+
+        <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" Margin="0,50,0,0" CanUserAddRows="False" CanUserSortColumns="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Apartment name" Binding="{Binding ApartmentName}" Width="*"/>
+                <DataGridTextColumn Header="Date" Binding="{Binding ReservationDate}" Width="*"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*"/>
+                <DataGridTemplateColumn Header="Reasons" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="View" >
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Status}" Value="Rejected">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Status}" Value="Pending">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Status}" Value="Accepted">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Label Content="Filter:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="82" Margin="4,13,0,0" FontSize="14"/>
+        <ComboBox x:Name="filterComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="119" Margin="51,17,0,0" SelectionChanged="Filter_SelectionChanged">
+            <ComboBoxItem Content="Pending" Tag="Pending"/>
+            <ComboBoxItem Content="Accepted" Tag="Accepted"/>
+            <ComboBoxItem Content="Rejected" Tag="Rejected"/>
+        </ComboBox>
+
+    </Grid>
+</Page>
