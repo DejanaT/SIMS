@@ -1,6 +1,7 @@
 ﻿using Project.Model;
 using Projekat.Controller;
 using Projekat.Model;
+using Projekat.Model.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,7 +48,37 @@ namespace Projekat.GuestPages
                 dataGrid.ItemsSource = filteredReservations;
             }
         }
-    
+
+        private void View_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            var reservation = button?.DataContext as Reservation;
+
+            if (reservation != null && reservation.Status.ToString() == "Rejected")
+            {
+                
+                RejectReason rejectReason = new RejectReason(reservation.ReasonReject);
+                rejectReason.ShowDialog();
+            }
+        }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            Reservation selectedReservation = (sender as Button)?.DataContext as Reservation;
+
+            if (selectedReservation != null && (selectedReservation.Status == ReservationStatus.Pending || selectedReservation.Status == ReservationStatus.Accepted))
+            {
+                selectedReservation.Status = ReservationStatus.Canceled;
+                reservationController.Update(selectedReservation);
+                reservationController.UpdateApartmentReservationCancel(selectedReservation);
+                RefreshDataGrid();
+            }
+        }
+
+        private void RefreshDataGrid()
+        {
+            dataGrid.ItemsSource = reservationController.GetAllByGuestJmbg(guest.JMBG);
+        }
     }
 
 

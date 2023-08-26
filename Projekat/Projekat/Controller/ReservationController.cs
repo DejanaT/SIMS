@@ -41,5 +41,15 @@ namespace Projekat.Controller
         {
             return reservationService.GetByStatus(status);
         }
+
+        public void Update(Reservation selectedReservation)
+        {
+            reservationService.Update(selectedReservation);
+        }
+
+        public void UpdateApartmentReservationCancel(Reservation reservation)
+        {
+            reservationService.UpdateApartmentReservationCancel(reservation);
+        }
     }
 }

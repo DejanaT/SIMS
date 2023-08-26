@@ -95,5 +95,10 @@ namespace Projekat.Controller
         {
             hotelService.UpdateApartments(hotel);
         }
+
+        public List<Hotel> GetApprovedHotels()
+        {
+            return hotelService.GetApprovedHotels();
+        }
     }
 }

@@ -57,5 +57,18 @@ namespace Projekat.Repository
             reservations = GetAll();
             return reservations.Where(r => r.Status.ToString() == status).ToList();
         }
+
+        public void Update(Reservation reservation)
+        {
+            reservations = GetAll();
+
+            Reservation existingReservation = reservations.FirstOrDefault(r => r.ReservationDate.Equals(reservation.ReservationDate));
+            if (existingReservation != null)
+            {
+                int index = reservations.IndexOf(existingReservation);
+                reservations[index] = reservation;
+                SaveChanges(reservations);
+            }
+        }
     }
 }

@@ -15,12 +15,38 @@
         <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" Margin="0,50,0,0" CanUserAddRows="False" CanUserSortColumns="False" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Apartment name" Binding="{Binding ApartmentName}" Width="*"/>
-                <DataGridTextColumn Header="Date" Binding="{Binding ReservationDate}" Width="*"/>
-                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*"/>
-                <DataGridTemplateColumn Header="Reasons" Width="*">
+                <DataGridTextColumn Header="Date" Binding="{Binding ReservationDate}" Width="Auto"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="Auto"/>
+                <DataGridTemplateColumn Header="Cancel" Width="Auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="View" >
+                            <Button Content="Cancel" Click="Cancel_Click">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Status}" Value="Pending">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Status}" Value="Accepted">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Status}" Value="Rejected">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Status}" Value="Canceled">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Reasons" Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="View" Click="View_Click">
                                 <Button.Style>
                                     <Style TargetType="Button">
                                         <Style.Triggers>
@@ -31,6 +57,9 @@
                                                 <Setter Property="Visibility" Value="Collapsed"/>
                                             </DataTrigger>
                                             <DataTrigger Binding="{Binding Status}" Value="Accepted">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Status}" Value="Canceled">
                                                 <Setter Property="Visibility" Value="Collapsed"/>
                                             </DataTrigger>
                                         </Style.Triggers>

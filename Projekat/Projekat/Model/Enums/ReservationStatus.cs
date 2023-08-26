@@ -10,6 +10,7 @@ namespace Projekat.Model.Enums
     {
         Accepted,
         Pending,
-        Rejected
+        Rejected,
+        Canceled
     }
 }

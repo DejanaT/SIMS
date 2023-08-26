@@ -24,15 +24,9 @@ namespace Projekat.Repository
         public Hotel FindByCode(string code)
         {
             hotels = GetAll();
-            foreach (Hotel h in hotels)
-            {
-                if (h.HotelCode.Equals(code))
-                {
-                    return h;
-                }
-            }
-            return null;
+            return hotels.FirstOrDefault(h => h.HotelCode == code && !h.Deleted);
         }
+
 
         public Hotel GetById(string id)
         {
@@ -67,8 +61,6 @@ namespace Projekat.Repository
 
             if (cancelHotel != null)
             {
-                cancelHotel.HotelStatus = HotelStatus.Rejected;
-                cancelHotel.Deleted = true;
                 SaveChanges(hotels);
             }
 
@@ -163,6 +155,13 @@ namespace Projekat.Repository
 
                 SaveChanges(hotels);
             }
+        }
+
+        public List<Hotel> GetApprovedHotels()
+        {
+            hotels = GetAll();
+            List<Hotel> approvedHotels = hotels.Where(h => h.HotelStatus == HotelStatus.Accepted).ToList();
+            return approvedHotels;
         }
 
     }
