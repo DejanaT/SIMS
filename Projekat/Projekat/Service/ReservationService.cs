@@ -1,4 +1,5 @@
-﻿using Projekat.Model;
+﻿using Project.Model;
+using Projekat.Model;
 using Projekat.Model.Enums;
 using Projekat.Repository;
 using System;
@@ -13,6 +14,8 @@ namespace Projekat.Service
     public class ReservationService
     {
         private ReservationRepository reservationRepository = new ReservationRepository();
+        private ApartmentRepository apartmentRepository = new ApartmentRepository();    
+        private ApartmentService apartmentService = new ApartmentService();
 
         public List<Reservation> GetReservations()
         {
@@ -53,12 +56,43 @@ namespace Projekat.Service
 
         public List<Reservation> GetAllByGuestJmbg(string guestJmbg)
         {
-            return reservationRepository.GetAllByGuestJmbg(guestJmbg);
+            List<Reservation> reservations = reservationRepository.GetAllByGuestJmbg(guestJmbg);
+            List<Reservation> notCanceledReservations = new List<Reservation>();
+
+            foreach (Reservation reservation in reservations)
+            {
+                if (!reservation.Deleted)
+                {
+                    notCanceledReservations.Add(reservation);
+                }
+            }
+            return notCanceledReservations;
         }
 
         public List<Reservation> GetByStatus(string status)
         {
             return reservationRepository.GetByStatus(status);
+        }
+
+        public void Update(Reservation r)
+        {
+            reservationRepository.Update(r);
+        }
+
+        public void UpdateApartmentReservationCancel(Reservation reservation)
+        {
+            Apartment apartment = apartmentRepository.FindByName(reservation.ApartmentName);
+
+            if (apartment != null)
+            {
+                var reservationInApartment = apartment.Reservations.FirstOrDefault(r => r.Id == reservation.Id);
+
+                if (reservationInApartment != null)
+                {
+                    apartment.Reservations.Remove(reservationInApartment);
+                    apartmentService.Update(apartment);
+                }
+            }
         }
 
 

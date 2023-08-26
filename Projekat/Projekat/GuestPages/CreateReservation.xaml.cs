@@ -39,7 +39,7 @@ namespace Projekat.GuestPages
 
         private void LoadHotelsName()
         {
-            List<Hotel> hotels = hotelController.GetHotels();
+            List<Hotel> hotels = hotelController.GetApprovedHotels();
             foreach (var hotel in hotels)
             {
                 if (hotel.Apartments.Any())

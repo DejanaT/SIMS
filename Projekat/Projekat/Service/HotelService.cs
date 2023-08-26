@@ -1,4 +1,5 @@
 ﻿using Project.Model;
+using Projekat.Model;
 using Projekat.Model.Enums;
 using Projekat.Repository;
 using System;
@@ -13,6 +14,7 @@ namespace Projekat.Service
     public class HotelService
     {
         private HotelRepository hotelRepository = new HotelRepository();
+        private ApartmentRepository apartmentRepository = new ApartmentRepository();
 
         public List<Hotel> GetHotels()
         {
@@ -32,7 +34,7 @@ namespace Projekat.Service
         public void Create(Hotel hotel)
         {
             hotel.Id = Guid.NewGuid().ToString();
-            bool isHotelExist = hotelRepository.GetAll().Any(h => h.Id == hotel.Id || h.HotelCode == hotel.HotelCode);
+            bool isHotelExist = hotelRepository.GetAll().Any(h => (h.Id == hotel.Id || h.HotelCode == hotel.HotelCode) && !h.Deleted);
 
             if (!isHotelExist)
             {
@@ -47,7 +49,25 @@ namespace Projekat.Service
 
         public void DeleteHotel(Hotel hotel)
         {
-            hotelRepository.DeleteHotel(hotel);
+            List<Hotel> hotels = hotelRepository.GetAll();
+            Hotel cancelHotel = hotels.FirstOrDefault(h => h.Id == hotel.Id);
+
+            if (cancelHotel != null)
+            {
+                cancelHotel.HotelStatus = HotelStatus.Rejected;
+                cancelHotel.Deleted = true;
+
+                foreach (var apartment in cancelHotel.Apartments.Values)
+                {
+                    apartment.Reservations = new List<Reservation>();
+                    apartment.Deleted = true;
+                    apartmentRepository.UpdateApartment(apartment);
+
+                }
+
+                cancelHotel.Apartments = new Dictionary<string, Apartment>();
+                hotelRepository.SaveChanges(hotels);
+            }
         }
 
         internal void Update(Hotel selectedHotel)
@@ -123,6 +143,11 @@ namespace Projekat.Service
         public void UpdateApartments(Hotel hotel)
         {
             hotelRepository.UpdateApartments(hotel);
+        }
+
+        public List<Hotel> GetApprovedHotels()
+        {
+            return hotelRepository.GetApprovedHotels();
         }
     }
 }
