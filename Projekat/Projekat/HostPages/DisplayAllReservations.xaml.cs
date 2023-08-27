@@ -1,20 +1,10 @@
 ﻿using Project.Model;
 using Projekat.Controller;
 using Projekat.Model;
-using System;
+using Projekat.Model.Enums;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Projekat.HostPages
 {
@@ -37,5 +27,30 @@ namespace Projekat.HostPages
             reservations = reservationController.GetReservationsByHostJmbg(host.JMBG, hotels);
             dataGrid.ItemsSource = reservations;
         }
+
+        private void Filter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBoxItem filterSelectedItem = (ComboBoxItem)filterComboBox.SelectedItem;
+            string reservationFilter = filterSelectedItem.Tag.ToString();
+
+            List<Reservation> reservations = reservationController.GetReservationsByHostJmbg(host.JMBG, hotels);
+            List<Reservation> filtered = new List<Reservation>();
+
+            if (reservationFilter == "Pending")
+            {
+                filtered = reservations.Where(r => r.Status == ReservationStatus.Pending).ToList();
+            }
+            else if (reservationFilter == "Accepted")
+            {
+                filtered = reservations.Where(r => r.Status == ReservationStatus.Accepted).ToList();
+            }
+            else if (reservationFilter == "Show all")
+            {
+                filtered = reservations;
+            }
+
+            dataGrid.ItemsSource = filtered;
+        }
+
     }
 }

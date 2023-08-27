@@ -25,9 +25,11 @@
         </DataGrid>
 
         <Label Content="Filter:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="82" Margin="4,13,0,0" FontSize="14"/>
-        <ComboBox x:Name="filterComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="119" Margin="51,17,0,0">
+        <ComboBox x:Name="filterComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="119" Margin="51,17,0,0"
+                  SelectionChanged="Filter_SelectionChanged">
             <ComboBoxItem Content="Pending" Tag="Pending"/>
             <ComboBoxItem Content="Accepted" Tag="Accepted"/>
+            <ComboBoxItem Content="Show all" Tag="Show all"/>
         </ComboBox>
 
     </Grid>
