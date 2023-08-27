@@ -95,6 +95,11 @@ namespace Projekat.Service
             }
         }
 
+        public List<Reservation> GetReservationsByHostJmbg(string hostJmbg, List<Hotel> hotels)
+        {
+            return reservationRepository.GetReservationsByHostJmbg(hostJmbg, hotels);
+        }
+
 
     }
 }

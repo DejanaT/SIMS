@@ -1,4 +1,5 @@
-﻿using Projekat.Model;
+﻿using Project.Model;
+using Projekat.Model;
 using Projekat.Model.Enums;
 using Projekat.Service;
 using System;
@@ -50,6 +51,11 @@ namespace Projekat.Controller
         public void UpdateApartmentReservationCancel(Reservation reservation)
         {
             reservationService.UpdateApartmentReservationCancel(reservation);
+        }
+
+        public List<Reservation> GetReservationsByHostJmbg(string hostJmbg, List<Hotel> hotels)
+        {
+            return reservationService.GetReservationsByHostJmbg(hostJmbg, hotels);
         }
     }
 }

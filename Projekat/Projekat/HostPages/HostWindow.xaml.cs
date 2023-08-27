@@ -38,7 +38,7 @@ namespace Projekat.HostPages
             {
 
                 case 0:
-                    //dodati
+                    mainFrame.Navigate(new DisplayAllReservations(host));
                     break;
                 case 1:
                     mainFrame.Navigate(new DisplayAllHotels(host));

@@ -1,4 +1,5 @@
-﻿using Projekat.Model;
+﻿using Project.Model;
+using Projekat.Model;
 using Projekat.Model.Enums;
 using System;
 using System.Collections.Generic;
@@ -70,5 +71,12 @@ namespace Projekat.Repository
                 SaveChanges(reservations);
             }
         }
+
+        public List<Reservation> GetReservationsByHostJmbg(string hostJmbg, List<Hotel> hotels)
+        {
+            return hotels.SelectMany(hotel => hotel.Apartments.Values).Where(apartment => apartment.Reservations != null)
+                         .SelectMany(apartment => apartment.Reservations).ToList();
+        }
+
     }
 }
