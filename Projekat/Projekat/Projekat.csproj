@@ -105,12 +105,16 @@
     <Compile Include="HostPages\DisplayAllHotels.xaml.cs">
       <DependentUpon>DisplayAllHotels.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HostPages\DisplayAllReservations.xaml.cs">
+      <DependentUpon>DisplayAllReservations.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HostPages\HostWindow.xaml.cs">
       <DependentUpon>HostWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="HostPages\HotelsApartments.xaml.cs">
       <DependentUpon>HotelsApartments.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HostPages\JmbgToGuestConverter.cs" />
     <Compile Include="Model\Enums\HotelStatus.cs" />
     <Compile Include="Model\Enums\ReservationStatus.cs" />
     <Compile Include="Model\Reservation.cs" />
@@ -174,6 +178,10 @@
     <Page Include="HostPages\DisplayAllHotels.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="HostPages\DisplayAllReservations.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="HostPages\HostWindow.xaml">
       <SubType>Designer</SubType>
