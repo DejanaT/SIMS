@@ -31,7 +31,7 @@
     "Surname": "Jankovic",
     "MobilePhone": "021885400",
     "UserType": 2,
-    "Blocked": true,
+    "Blocked": false,
     "Id": "2862477a-f246-43c8-8678-87a690db0841",
     "Deleted": false
   },

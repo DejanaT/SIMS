@@ -16,12 +16,14 @@ namespace Projekat.HostPages
         private HotelController hotelController = new HotelController();
         private UserController userController = new UserController();
         private List<Hotel> allHotels = new List<Hotel>();
+        private User host = new User();
 
         public DisplayAllHotels(User user)
         {
             InitializeComponent();
             allHotels = hotelController.GetAllByHostJmbg(user.JMBG);
             ShowHotels();
+            host = user;
         }
 
         private void ShowHotels()
@@ -206,6 +208,17 @@ namespace Projekat.HostPages
         {
             Search.Text = string.Empty;
             ShowHotels();
+        }
+
+        private void ViewReservations_Click(object sender, RoutedEventArgs e)
+        {
+            Hotel selectedHotel = (sender as Button)?.DataContext as Hotel;
+
+            if (selectedHotel != null)
+            {
+                HotelReservationDisplay hrd = new HotelReservationDisplay(selectedHotel, host);
+                hrd.ShowDialog();
+            }
         }
 
     }

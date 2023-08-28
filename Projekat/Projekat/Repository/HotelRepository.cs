@@ -164,5 +164,18 @@ namespace Projekat.Repository
             return approvedHotels;
         }
 
+        public Hotel FindHotelByApartment(Apartment apartment)
+        {
+            hotels = GetAll();
+            foreach (Hotel hotel in hotels)
+            {
+                if (hotel.Apartments != null && hotel.Apartments.Values.Any(a => a.Id == apartment.Id))
+                {
+                    return hotel;
+                }
+            }
+            return null;
+        }
+
     }
 }

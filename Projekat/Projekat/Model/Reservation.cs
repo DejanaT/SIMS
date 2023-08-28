@@ -11,6 +11,7 @@ namespace Projekat.Model
     public class Reservation : BaseModel
     {
         public string GuestJmbg { get; set; }
+        public string HostJmbg { get; set; }
         public string ApartmentName { get; set; }
         public string ReservationDate { get; set; }
         public ReservationStatus Status { get; set; }

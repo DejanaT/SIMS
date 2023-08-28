@@ -1,4 +1,5 @@
 ﻿using Project.Model;
+using Projekat.Model;
 using Projekat.Repository;
 using System;
 using System.Collections.Generic;
@@ -58,6 +59,11 @@ namespace Projekat.Service
         public void Update(Apartment a)
         {
             apartmentRepository.UpdateApartment(a);
+        }
+
+        public Apartment FindApartmentByReservation(Reservation reservation)
+        {
+            return apartmentRepository.FindApartmentByReservation(reservation);
         }
     }
 }

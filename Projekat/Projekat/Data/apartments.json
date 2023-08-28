@@ -1,85 +1,51 @@
 [
   {
-    "Name": "Apartman1",
-    "Description": "Prostran, veliki",
-    "RoomsQuantity": 3,
-    "MaxNumberOfGuests": 12,
-    "Reservations": null,
-    "Id": "9f67545e-74d5-4dd4-96ca-1d6043f33602",
-    "Deleted": false
-  },
-  {
-    "Name": "Apartman2",
-    "Description": "Mali",
+    "Name": "ap1",
+    "Description": "mali",
     "RoomsQuantity": 1,
     "MaxNumberOfGuests": 2,
-    "Reservations": null,
-    "Id": "43fc1696-3d58-4c7f-b2ce-f6ed0886a7c6",
-    "Deleted": false
-  },
-  {
-    "Name": "Apartman3",
-    "Description": "Sa balkonom",
-    "RoomsQuantity": 2,
-    "MaxNumberOfGuests": 4,
     "Reservations": [
       {
         "GuestJmbg": "1234569632525",
-        "ApartmentName": "Apartman3",
-        "ReservationDate": "2023-08-26",
-        "Status": 1,
+        "HostJmbg": "9876543213211",
+        "ApartmentName": "ap1",
+        "ReservationDate": "2023-08-29",
+        "Status": 0,
         "ReasonReject": "",
-        "Id": "8e3668ee-9c45-4086-a9cd-43c4c052717e",
-        "Deleted": false
-      },
-      {
-        "GuestJmbg": "1234569632525",
-        "ApartmentName": "Apartman3",
-        "ReservationDate": "2023-08-27",
-        "Status": 1,
-        "ReasonReject": "",
-        "Id": "b0befa94-1959-4246-866a-c6d1676feaec",
+        "Id": "cf66a28c-215e-4891-a7f3-5b02548f95a7",
         "Deleted": false
       }
     ],
-    "Id": "32f3ad1b-5f24-45ff-825b-4425a11b8289",
+    "Id": "248f246d-ed49-4b81-af48-0fbda50432f5",
     "Deleted": false
   },
   {
-    "Name": "Apartman4",
-    "Description": "Staromodan",
+    "Name": "ap2",
+    "Description": "velik",
     "RoomsQuantity": 3,
     "MaxNumberOfGuests": 9,
-    "Reservations": null,
-    "Id": "46ec4d01-4ba3-4aee-9829-adb24caec4dd",
+    "Reservations": [],
+    "Id": "1cf2baba-54ed-4d75-b768-f27b8206cf5a",
     "Deleted": false
   },
   {
-    "Name": "Apartman5",
-    "Description": "Ukljucen dorucak",
-    "RoomsQuantity": 1,
-    "MaxNumberOfGuests": 3,
-    "Reservations": null,
-    "Id": "18c013be-a78d-4726-8546-7fdd1915009f",
-    "Deleted": false
-  },
-  {
-    "Name": "Apartman6",
-    "Description": "Sa pogledom na more",
-    "RoomsQuantity": 2,
+    "Name": "ap3",
+    "Description": "sa doruckom",
+    "RoomsQuantity": 3,
     "MaxNumberOfGuests": 6,
     "Reservations": [
       {
         "GuestJmbg": "1234569632525",
-        "ApartmentName": "Apartman6",
-        "ReservationDate": "2023-08-27",
-        "Status": 1,
+        "HostJmbg": "9876543213211",
+        "ApartmentName": "ap3",
+        "ReservationDate": "2023-08-30",
+        "Status": 0,
         "ReasonReject": "",
-        "Id": "b99353cc-821e-44a7-a841-df109d3deb61",
+        "Id": "84f74903-9e10-4509-9c38-1a9b627257b6",
         "Deleted": false
       }
     ],
-    "Id": "03af76b7-6fb5-425c-a6ed-5cce4d267cf1",
+    "Id": "5bbfda36-bbe3-4b33-83b7-20e45ee8f369",
     "Deleted": false
   }
 ]

@@ -61,6 +61,11 @@ namespace Projekat.Controller
            return userService.GetHostJmbgs();    
         }
 
+        public string GetHostJmbgByApartmentAndHotel(string hotelCode, string apartmanName)
+        {
+           return userService.GetHostJmbgByApartmentAndHotel(hotelCode, apartmanName);
+        }
+
 
     }
 }

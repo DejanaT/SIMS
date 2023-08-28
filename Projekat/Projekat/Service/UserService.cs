@@ -14,6 +14,7 @@ namespace Projekat.Service
     public class UserService
     {
         private UserRepository userRepository = new UserRepository();
+        private HotelRepository hotelRepository = new HotelRepository();
 
         public List<User> GetUsers()
         {
@@ -101,6 +102,16 @@ namespace Projekat.Service
             List<User> hostUsers = userRepository.GetUsersByType(UserType.Host);
             List<string> hostsJmbgs = hostUsers.Select(user => user.JMBG).ToList();
             return hostsJmbgs;
+        }
+
+        public string GetHostJmbgByApartmentAndHotel(string hotelCode, string apartmanName)
+        {
+            Hotel hotel = hotelRepository.FindByCode(hotelCode);
+            if (hotel != null && hotel.Apartments.ContainsKey(apartmanName))
+            {
+                return hotel.HostJmbg;
+            }
+            return null;
         }
 
 

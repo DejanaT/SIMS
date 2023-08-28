@@ -2,20 +2,10 @@
 using Projekat.Controller;
 using Projekat.Model;
 using Projekat.Model.Enums;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Projekat.GuestPages
 {
@@ -26,6 +16,8 @@ namespace Projekat.GuestPages
     {
         private ReservationController reservationController = new ReservationController();
         private User guest = new User();
+        private HotelController hotelController = new HotelController();
+        private ApartmentController apartmentController = new ApartmentController();
 
         public MyReservations(User user)
         {
@@ -44,8 +36,10 @@ namespace Projekat.GuestPages
             }
             else
             {
-                List<Reservation> filteredReservations = reservationController.GetByStatus(selectedStatus);
-                dataGrid.ItemsSource = filteredReservations;
+                List<Reservation> allReservations = reservationController.GetAllByGuestJmbg(guest.JMBG);
+                List<Reservation> filtered = allReservations.Where(r => r.Status.ToString() == selectedStatus).ToList();
+
+                dataGrid.ItemsSource = filtered;
             }
         }
 
@@ -56,7 +50,7 @@ namespace Projekat.GuestPages
 
             if (reservation != null && reservation.Status.ToString() == "Rejected")
             {
-                
+
                 RejectReason rejectReason = new RejectReason(reservation.ReasonReject);
                 rejectReason.ShowDialog();
             }
@@ -68,12 +62,18 @@ namespace Projekat.GuestPages
 
             if (selectedReservation != null && (selectedReservation.Status == ReservationStatus.Pending || selectedReservation.Status == ReservationStatus.Accepted))
             {
-                selectedReservation.Status = ReservationStatus.Canceled;
-                reservationController.Update(selectedReservation);
-                reservationController.UpdateApartmentReservationCancel(selectedReservation);
-                RefreshDataGrid();
+                Apartment apartment = apartmentController.FindApartmentByReservation(selectedReservation);
+
+                if (apartment != null)
+                {
+                    reservationController.CancelReservation(selectedReservation);
+                    MessageBox.Show("Reservation has been successfully canceled.");
+                    RefreshDataGrid();
+                }
             }
         }
+
+
 
         private void RefreshDataGrid()
         {

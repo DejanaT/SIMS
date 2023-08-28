@@ -19,8 +19,29 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Code" Binding="{Binding HotelCode}" Width="Auto"/>
                 <DataGridTextColumn Header="Name" Binding="{Binding HotelName}" Width="Auto"/>
-                <DataGridTextColumn Header="Year of constr." Binding="{Binding YearOfConstruction}" Width="Auto"/>
+                <DataGridTextColumn Header="Year" Binding="{Binding YearOfConstruction}" Width="Auto"/>
                 <DataGridTextColumn Header="Apartments" Width="*" Binding="{Binding Apartments, Converter={StaticResource ApartmentsConverter}}" />
+                <DataGridTemplateColumn Header="Reservations">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="View" Click="ViewReservations_Click"
+                    Name="ViewButton">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding HotelStatus}" Value="Accepted">
+                                                <Setter Property="Visibility" Value="Visible" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding HotelStatus}" Value="Pending">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 <DataGridTextColumn Header="Stars" Binding="{Binding NumberOfStars}" Width="Auto"/>
                 <DataGridTextColumn Header="Status" Binding="{Binding HotelStatus}" Width="Auto"/>
                 <DataGridTemplateColumn Header="Approve">

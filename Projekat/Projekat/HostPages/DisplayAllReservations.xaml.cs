@@ -24,7 +24,7 @@ namespace Projekat.HostPages
             InitializeComponent();
             host = user;
             hotels = hotelController.GetAllByHostJmbg(host.JMBG);
-            reservations = reservationController.GetReservationsByHostJmbg(host.JMBG, hotels);
+            reservations = reservationController.GetAllByHostJmbg(host.JMBG);
             dataGrid.ItemsSource = reservations;
         }
 
@@ -33,7 +33,7 @@ namespace Projekat.HostPages
             ComboBoxItem filterSelectedItem = (ComboBoxItem)filterComboBox.SelectedItem;
             string reservationFilter = filterSelectedItem.Tag.ToString();
 
-            List<Reservation> reservations = reservationController.GetReservationsByHostJmbg(host.JMBG, hotels);
+            List<Reservation> reservations = reservationController.GetAllByHostJmbg(host.JMBG);
             List<Reservation> filtered = new List<Reservation>();
 
             if (reservationFilter == "Pending")

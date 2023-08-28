@@ -100,5 +100,10 @@ namespace Projekat.Controller
         {
             return hotelService.GetApprovedHotels();
         }
+
+        public Hotel FindHotelByApartment(Apartment apartment)
+        {
+            return hotelService.FindHotelByApartment(apartment);
+        }
     }
 }
