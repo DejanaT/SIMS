@@ -33,11 +33,6 @@
                     <TextBlock FontSize="15">All hotels</TextBlock>
                 </StackPanel>
             </ListViewItem>
-            <ListViewItem Height="45" Width="155" Background="LightBlue" BorderBrush="Black" BorderThickness="1">
-                <StackPanel>
-                    <TextBlock FontSize="15">Cancel reservation</TextBlock>
-                </StackPanel>
-            </ListViewItem>
         </ListView>
 
         <Frame Name="mainFrame" Margin="150,55,0,0" NavigationUIVisibility="Hidden"/>

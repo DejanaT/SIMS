@@ -12,9 +12,9 @@
     </Page.Resources>
     <Grid Background="LightBlue">
         <Frame x:Name="contentFrame" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,53,0,0" Height="500"/>
-        <Rectangle HorizontalAlignment="Left" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Height="55" Width="800"/>
+        <Rectangle HorizontalAlignment="Left" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Height="55" Width="800"/>
 
-        <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" Margin="0,50,0,0" CanUserAddRows="False" CanUserSortColumns="False" >
+        <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" Margin="0,50,0,0" CanUserAddRows="False" CanUserSortColumns="False" CanUserResizeColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
                 <DataGridTextColumn Header="Surname" Binding="{Binding Surname}"/>
@@ -26,7 +26,7 @@
                 <DataGridTemplateColumn Header="Block">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Block" Click="BlockButton_Click">
+                            <Button Content="Block" Click="BlockButton_Click" Background="LightCoral">
                                 <Button.Style>
                                     <Style TargetType="Button">
                                         <Style.Triggers>
@@ -43,7 +43,7 @@
                 <DataGridTemplateColumn Header="Unblock">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Unblock" Click="UnblockButton_Click">
+                            <Button Content="Unblock" Click="UnblockButton_Click" Background="LightGreen">
                                 <Button.Style>
                                     <Style TargetType="Button">
                                         <Style.Triggers>

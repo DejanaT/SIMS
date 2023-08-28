@@ -30,7 +30,9 @@ namespace Projekat.AdministratorPages
         {
             InitializeComponent();
             allHotels = hotelController.GetHotels();
+            dataGrid.Items.Clear();
             dataGrid.ItemsSource = allHotels;
+
         }
 
         private void Sort_SelectionChanged(object sender, SelectionChangedEventArgs e)

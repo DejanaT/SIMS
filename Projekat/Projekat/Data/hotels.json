@@ -43,6 +43,15 @@
         ],
         "Id": "5bbfda36-bbe3-4b33-83b7-20e45ee8f369",
         "Deleted": false
+      },
+      "Soba 5": {
+        "Name": "Soba 5",
+        "Description": "mala soba",
+        "RoomsQuantity": 1,
+        "MaxNumberOfGuests": 2,
+        "Reservations": [],
+        "Id": "9e68fa4a-06f7-4ad4-89a4-4c3e70254632",
+        "Deleted": false
       }
     },
     "NumberOfStars": 5,
@@ -61,7 +70,18 @@
         "Description": "velik",
         "RoomsQuantity": 3,
         "MaxNumberOfGuests": 9,
-        "Reservations": [],
+        "Reservations": [
+          {
+            "GuestJmbg": "1234569632525",
+            "HostJmbg": "9876543213211",
+            "ApartmentName": "ap2",
+            "ReservationDate": "2023-08-31",
+            "Status": 1,
+            "ReasonReject": "",
+            "Id": "185c2f58-e66c-46fe-bc19-b783d551bb96",
+            "Deleted": false
+          }
+        ],
         "Id": "1cf2baba-54ed-4d75-b768-f27b8206cf5a",
         "Deleted": false
       }
@@ -70,6 +90,17 @@
     "HostJmbg": "9876543213211",
     "HotelStatus": 1,
     "Id": "0cbce586-9ae1-42ef-bf79-e55e427a8a62",
+    "Deleted": false
+  },
+  {
+    "HotelCode": "3",
+    "HotelName": "Park",
+    "YearOfConstruction": 2014,
+    "Apartments": {},
+    "NumberOfStars": 4,
+    "HostJmbg": "9876543213211",
+    "HotelStatus": 0,
+    "Id": "9509803c-207f-48ce-aaa0-2534c3e7a191",
     "Deleted": false
   }
 ]
