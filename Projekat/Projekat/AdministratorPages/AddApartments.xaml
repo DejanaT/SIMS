@@ -26,7 +26,7 @@
             </Button.Background>
         </Button>
 
-        <DataGrid x:Name="dataGrid"  Margin="332,84,29,93" CanUserAddRows="False" CanUserSortColumns="False">
+        <DataGrid x:Name="dataGrid"  Margin="332,84,29,93" CanUserAddRows="False" CanUserSortColumns="False" CanUserResizeColumns="False">>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
                 <DataGridTextColumn Header="Description" Width="*" Binding="{Binding Description}"/>

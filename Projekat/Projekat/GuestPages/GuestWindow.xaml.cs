@@ -48,9 +48,6 @@ namespace Projekat.GuestPages
                 case 2:
                     mainFrame.Navigate(new DisplayAllHotels());
                     break;
-                case 3:
-                    //dodati
-                    break;
             }
 
             Menu.SelectedIndex = -1;

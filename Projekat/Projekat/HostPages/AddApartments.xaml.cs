@@ -31,6 +31,12 @@ namespace Projekat.HostPages
         private void SaveChanges_Click(object sender, RoutedEventArgs e)
         {
 
+            if (addedApartments.Count == 0)
+            {
+                MessageBox.Show("You haven't added any apartments.");
+                return;
+            }
+
             foreach (var apartment in addedApartments)
             {
                 selectedHotel.Apartments.Add(apartment.Name, apartment);

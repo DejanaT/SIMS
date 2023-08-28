@@ -24,7 +24,18 @@
     "Description": "velik",
     "RoomsQuantity": 3,
     "MaxNumberOfGuests": 9,
-    "Reservations": [],
+    "Reservations": [
+      {
+        "GuestJmbg": "1234569632525",
+        "HostJmbg": "9876543213211",
+        "ApartmentName": "ap2",
+        "ReservationDate": "2023-08-31",
+        "Status": 1,
+        "ReasonReject": "",
+        "Id": "185c2f58-e66c-46fe-bc19-b783d551bb96",
+        "Deleted": false
+      }
+    ],
     "Id": "1cf2baba-54ed-4d75-b768-f27b8206cf5a",
     "Deleted": false
   },
@@ -46,6 +57,15 @@
       }
     ],
     "Id": "5bbfda36-bbe3-4b33-83b7-20e45ee8f369",
+    "Deleted": false
+  },
+  {
+    "Name": "Soba 5",
+    "Description": "mala soba",
+    "RoomsQuantity": 1,
+    "MaxNumberOfGuests": 2,
+    "Reservations": [],
+    "Id": "9e68fa4a-06f7-4ad4-89a4-4c3e70254632",
     "Deleted": false
   }
 ]

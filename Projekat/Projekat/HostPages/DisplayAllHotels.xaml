@@ -13,9 +13,9 @@
 
     <Grid Background="LightBlue">
         <Frame x:Name="contentFrame" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,53,0,0" Height="500"/>
-        <Rectangle HorizontalAlignment="Left" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Height="55" Width="800"/>
+        <Rectangle HorizontalAlignment="Left" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Height="55" Width="800"/>
 
-        <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" Margin="0,50,0,0" CanUserAddRows="False" CanUserSortColumns="False" >
+        <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" Margin="0,50,0,0" CanUserAddRows="False" CanUserSortColumns="False" CanUserResizeColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Code" Binding="{Binding HotelCode}" Width="Auto"/>
                 <DataGridTextColumn Header="Name" Binding="{Binding HotelName}" Width="Auto"/>
@@ -47,7 +47,7 @@
                 <DataGridTemplateColumn Header="Approve">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Approve" Click="ApproveButton_Click">
+                            <Button Content="✔" Click="ApproveButton_Click" Background="LightGreen">
                                 <Button.Style>
                                     <Style TargetType="Button">
                                         <Style.Triggers>
@@ -64,7 +64,7 @@
                 <DataGridTemplateColumn Header="Cancel">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Cancel" Click="CancelButton_Click">
+                            <Button Content="✖" Click="CancelButton_Click" Background="LightCoral">
                                 <Button.Style>
                                     <Style TargetType="Button">
                                         <Style.Triggers>
