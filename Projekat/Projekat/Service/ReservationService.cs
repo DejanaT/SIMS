@@ -14,7 +14,8 @@ namespace Projekat.Service
     public class ReservationService
     {
         private ReservationRepository reservationRepository = new ReservationRepository();
-        private ApartmentRepository apartmentRepository = new ApartmentRepository();    
+        private ApartmentRepository apartmentRepository = new ApartmentRepository(); 
+        private HotelRepository hotelRepository = new HotelRepository();
         private ApartmentService apartmentService = new ApartmentService();
 
         public List<Reservation> GetReservations()
@@ -35,11 +36,15 @@ namespace Projekat.Service
         public void Create(Reservation reservation)
         {
             reservation.Id = Guid.NewGuid().ToString();
-            bool isReservationExist = reservationRepository.GetAll().Any(r => r.ReservationDate == reservation.ReservationDate && r.ApartmentName == reservation.ApartmentName);
+            reservation.Status = ReservationStatus.Pending;
 
-            if (isReservationExist)
+            bool isExists = reservationRepository.GetAll().Any(r => r.ReservationDate == reservation.ReservationDate &&
+                                                                    r.ApartmentName == reservation.ApartmentName &&
+                                                                    r.Status != ReservationStatus.Canceled);
+
+            if (isExists)
             {
-                MessageBox.Show("Reservation already exists!");
+                MessageBox.Show("A reservation already exists for the selected date!");
             }
             else
             {
@@ -47,6 +52,7 @@ namespace Projekat.Service
                 MessageBox.Show("Reservation created successfully!");
             }
         }
+
 
         public bool IsReservationExist(Reservation r)
         {
@@ -79,10 +85,8 @@ namespace Projekat.Service
             reservationRepository.Update(r);
         }
 
-        public void UpdateApartmentReservationCancel(Reservation reservation)
+        public void UpdateApartmentReservationCancel(Reservation reservation, Apartment apartment)
         {
-            Apartment apartment = apartmentRepository.FindByName(reservation.ApartmentName);
-
             if (apartment != null)
             {
                 var reservationInApartment = apartment.Reservations.FirstOrDefault(r => r.Id == reservation.Id);
@@ -95,9 +99,59 @@ namespace Projekat.Service
             }
         }
 
-        public List<Reservation> GetReservationsByHostJmbg(string hostJmbg, List<Hotel> hotels)
+        public void UpdateHotelReservationCancel(Reservation reservation, Hotel hotel)
         {
-            return reservationRepository.GetReservationsByHostJmbg(hostJmbg, hotels);
+            Apartment apartment = apartmentRepository.FindByName(reservation.ApartmentName);
+            if (hotel != null)
+            {
+                var reservationInHotel = hotel.Apartments[apartment.Name].Reservations.FirstOrDefault(r => r.Id == reservation.Id);
+
+                if (reservationInHotel != null)
+                {
+                    hotel.Apartments[apartment.Name].Reservations.Remove(reservationInHotel);
+                    hotelRepository.UpdateHotel(hotel);
+                }
+            }
+        }
+
+        public void UpdateApartmentReservationApprove(Reservation reservation, Apartment apartment)
+        {
+            if (apartment != null)
+            {
+                var reservationInApartment = apartment.Reservations.FirstOrDefault(r => r.Id == reservation.Id);
+
+                if (reservationInApartment != null)
+                {
+                    reservationInApartment.Status = ReservationStatus.Accepted;
+                    apartmentService.Update(apartment);
+                }
+            }
+        }
+
+        public void UpdateHotelReservationApprove(Reservation reservation, Hotel hotel)
+        {
+            Apartment apartment = apartmentRepository.FindByName(reservation.ApartmentName);
+            if (hotel != null && apartment != null)
+            {
+                var reservationInHotel = hotel.Apartments[apartment.Name].Reservations.FirstOrDefault(r => r.Id == reservation.Id);
+
+                if (reservationInHotel != null)
+                {
+                    reservationInHotel.Status = ReservationStatus.Accepted;
+                    hotelRepository.UpdateHotel(hotel);
+                }
+            }
+        }
+
+
+        public List<Reservation> GetReservationsByHostJmbg(string hostJmbg, List<Hotel> hotels)
+         {
+             return reservationRepository.GetReservationsByHostJmbg(hostJmbg, hotels);
+         }
+
+        public List<Reservation> GetAllByHostJmbg(string hostJmbg)
+        {
+            return reservationRepository.GetAllByHostJmbg(hostJmbg);
         }
 
 

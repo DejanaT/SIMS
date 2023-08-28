@@ -27,6 +27,7 @@ namespace Projekat.GuestPages
         private HotelController hotelController = new HotelController();
         private ApartmentController apartmentController = new ApartmentController();
         private ReservationController reservationController = new ReservationController();
+        private UserController userController = new UserController();
         private string jmbg;
 
         public CreateReservation(User user)
@@ -118,6 +119,7 @@ namespace Projekat.GuestPages
             Reservation newReservation = new Reservation
             {
                 GuestJmbg = jmbg,
+                HostJmbg = userController.GetHostJmbgByApartmentAndHotel(selectedHotel.HotelCode, selectedApartment.Name),
                 ApartmentName = selectedApartment.Name,
                 ReservationDate = date,
                 Status = ReservationStatus.Pending,

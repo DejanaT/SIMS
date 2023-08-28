@@ -1,29 +1,72 @@
 [
   {
     "GuestJmbg": "1234569632525",
-    "ApartmentName": "Apartman3",
-    "ReservationDate": "2023-08-26",
-    "Status": 1,
+    "HostJmbg": "9876543213211",
+    "ApartmentName": "ap1",
+    "ReservationDate": "2023-08-29",
+    "Status": 3,
     "ReasonReject": "",
-    "Id": "8e3668ee-9c45-4086-a9cd-43c4c052717e",
+    "Id": "e6c0afaf-9128-42e5-a93e-ea691453cd62",
+    "Deleted": true
+  },
+  {
+    "GuestJmbg": "1234569632525",
+    "HostJmbg": "9876543213211",
+    "ApartmentName": "ap1",
+    "ReservationDate": "2023-08-30",
+    "Status": 3,
+    "ReasonReject": "",
+    "Id": "0dc799c1-b960-4aa8-8f29-88aa2aabeb51",
+    "Deleted": true
+  },
+  {
+    "GuestJmbg": "1234569632525",
+    "HostJmbg": "9876543213211",
+    "ApartmentName": "ap2",
+    "ReservationDate": "2023-08-29",
+    "Status": 3,
+    "ReasonReject": "",
+    "Id": "ac54f6df-1ed6-4403-ba4b-ac824156a2ba",
+    "Deleted": true
+  },
+  {
+    "GuestJmbg": "1234569632525",
+    "HostJmbg": "9876543213211",
+    "ApartmentName": "ap2",
+    "ReservationDate": "2023-08-30",
+    "Status": 2,
+    "ReasonReject": "Zao mi je moramo da Vas odbijemo",
+    "Id": "e528cd85-e82a-4029-8def-3f3c1ec37abf",
     "Deleted": false
   },
   {
     "GuestJmbg": "1234569632525",
-    "ApartmentName": "Apartman3",
-    "ReservationDate": "2023-08-27",
-    "Status": 1,
+    "HostJmbg": "9876543213211",
+    "ApartmentName": "ap1",
+    "ReservationDate": "2023-08-29",
+    "Status": 0,
     "ReasonReject": "",
-    "Id": "b0befa94-1959-4246-866a-c6d1676feaec",
+    "Id": "cf66a28c-215e-4891-a7f3-5b02548f95a7",
     "Deleted": false
   },
   {
     "GuestJmbg": "1234569632525",
-    "ApartmentName": "Apartman6",
-    "ReservationDate": "2023-08-27",
-    "Status": 1,
+    "HostJmbg": "9876543213211",
+    "ApartmentName": "ap1",
+    "ReservationDate": "2023-08-30",
+    "Status": 2,
+    "ReasonReject": "zao nam je",
+    "Id": "974a5677-aa39-4343-b927-8dac0d5c67ee",
+    "Deleted": false
+  },
+  {
+    "GuestJmbg": "1234569632525",
+    "HostJmbg": "9876543213211",
+    "ApartmentName": "ap3",
+    "ReservationDate": "2023-08-30",
+    "Status": 0,
     "ReasonReject": "",
-    "Id": "b99353cc-821e-44a7-a841-df109d3deb61",
+    "Id": "84f74903-9e10-4509-9c38-1a9b627257b6",
     "Deleted": false
   }
 ]

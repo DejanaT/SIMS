@@ -149,5 +149,10 @@ namespace Projekat.Service
         {
             return hotelRepository.GetApprovedHotels();
         }
+
+        public Hotel FindHotelByApartment(Apartment apartment)
+        {
+            return hotelRepository.FindHotelByApartment(apartment);
+        }
     }
 }

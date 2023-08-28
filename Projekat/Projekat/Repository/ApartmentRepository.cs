@@ -1,4 +1,5 @@
 ﻿using Project.Model;
+using Projekat.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -77,6 +78,19 @@ namespace Projekat.Repository
                 apartments[index] = apartment;
                 SaveChanges(apartments);
             }
+        }
+
+        public Apartment FindApartmentByReservation(Reservation reservation)
+        {
+            apartments = GetAll();
+            foreach (Apartment apartment in apartments)
+            {
+                if (apartment.Reservations != null && apartment.Reservations.Any(r => r.Id == reservation.Id))
+                {
+                    return apartment;
+                }
+            }
+            return null;
         }
 
     }

@@ -63,7 +63,7 @@ namespace Projekat.Repository
         {
             reservations = GetAll();
 
-            Reservation existingReservation = reservations.FirstOrDefault(r => r.ReservationDate.Equals(reservation.ReservationDate));
+            Reservation existingReservation = reservations.FirstOrDefault(r => r.Id.Equals(reservation.Id));
             if (existingReservation != null)
             {
                 int index = reservations.IndexOf(existingReservation);
@@ -72,11 +72,21 @@ namespace Projekat.Repository
             }
         }
 
+
         public List<Reservation> GetReservationsByHostJmbg(string hostJmbg, List<Hotel> hotels)
+         {
+             return hotels.SelectMany(hotel => hotel.Apartments.Values).Where(apartment => apartment.Reservations != null)
+                          .SelectMany(apartment => apartment.Reservations).Where(reservation => reservation.Status == ReservationStatus.Pending
+                                     || reservation.Status == ReservationStatus.Accepted).ToList();
+         }
+
+        public List<Reservation> GetAllByHostJmbg(string hostJmbg)
         {
-            return hotels.SelectMany(hotel => hotel.Apartments.Values).Where(apartment => apartment.Reservations != null)
-                         .SelectMany(apartment => apartment.Reservations).ToList();
+            reservations = GetAll();
+            return reservations.Where(r => r.HostJmbg == hostJmbg && r.Status != ReservationStatus.Canceled && r.Status != ReservationStatus.Rejected).ToList();
+
         }
+
 
     }
 }
