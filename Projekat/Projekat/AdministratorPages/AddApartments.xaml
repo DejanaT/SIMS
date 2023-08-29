@@ -26,7 +26,7 @@
             </Button.Background>
         </Button>
 
-        <DataGrid x:Name="dataGrid"  Margin="332,84,29,93" CanUserAddRows="False" CanUserSortColumns="False" CanUserResizeColumns="False">>
+        <DataGrid x:Name="dataGrid"  Margin="332,84,29,93" CanUserAddRows="False" CanUserSortColumns="False" AutoGenerateColumns="False" CanUserResizeColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
                 <DataGridTextColumn Header="Description" Width="*" Binding="{Binding Description}"/>
@@ -39,9 +39,6 @@
             <Button.Background>
                 <SolidColorBrush Color="#27AE60" />
             </Button.Background>
-        </Button>
-
-        <Button Content="Skip" HorizontalAlignment="Left" Margin="502,360,0,0" VerticalAlignment="Top" FontSize="15" Width="127" Height="30" Click="Skip_Click">
         </Button>
 
     </Grid>

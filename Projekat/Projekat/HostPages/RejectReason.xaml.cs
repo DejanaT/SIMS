@@ -41,6 +41,7 @@ namespace Projekat.HostPages
             if (apartment != null)
             {
                 reservation.ReasonReject = reasonTextBox.Text;
+                reservation.Status = ReservationStatus.Rejected;
                 reservationController.RejectReservation(reservation);
                 MessageBox.Show("Reservation has been successfully rejected.");
             }

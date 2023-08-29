@@ -171,7 +171,12 @@ namespace Projekat.AdministratorPages
                             filteredHotels = hotelController.RoomsAndGuestsOr(filteredHotels, rooms, guests);
                         }
                     }
+                    else
+                    {
+                        filteredHotels = new List<Hotel>();
+                    }
                 }
+
             }
             ApplySorting(filteredHotels);
         }

@@ -1,21 +1,9 @@
 ﻿using Project.Model;
 using Projekat.Controller;
-using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Projekat.AdministratorPages
 {
@@ -105,7 +93,7 @@ namespace Projekat.AdministratorPages
             var selectedRow = (DataGridRow)dataGrid.ItemContainerGenerator.ContainerFromIndex(dataGrid.SelectedIndex);
             User selectedUser = (User)selectedRow.Item;
             //selectedUser.Blocked = true;
-            if(selectedUser.UserType.ToString() != "Administrator")
+            if (selectedUser.UserType.ToString() != "Administrator")
             {
                 userController.BlockUser(selectedUser);
                 dataGrid.Items.Refresh();
@@ -115,7 +103,7 @@ namespace Projekat.AdministratorPages
             {
                 MessageBox.Show($"Administrators hold a special status and cannot be blocked!");
             }
-           
+
         }
 
         private void UnblockButton_Click(object sender, RoutedEventArgs e)
@@ -128,5 +116,5 @@ namespace Projekat.AdministratorPages
             MessageBox.Show($"You have successfully unblocked user :  {selectedUser.Name} {selectedUser.Surname}.");
         }
     }
-    
+
 }

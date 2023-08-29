@@ -57,7 +57,9 @@ namespace Projekat.Service
         public bool IsReservationExist(Reservation r)
         {
             List<Reservation> reservations = GetReservations();
-            return reservations.Any(res => res.ReservationDate == r.ReservationDate && res.ApartmentName == r.ApartmentName);
+            return reservations.Any(res => res.ReservationDate == r.ReservationDate &&
+                                           res.ApartmentName == r.ApartmentName &&
+                                           res.Id == r.Id);
         }
 
         public List<Reservation> GetAllByGuestJmbg(string guestJmbg)

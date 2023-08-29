@@ -141,6 +141,11 @@ namespace Projekat.GuestPages
             }
 
             reservationController.Create(newReservation);
+            if (!reservationController.IsReservationExist(newReservation))
+            {
+                return;
+            }
+
             selectedApartment.Reservations.Add(newReservation);
             apartmentController.Update(selectedApartment);
 

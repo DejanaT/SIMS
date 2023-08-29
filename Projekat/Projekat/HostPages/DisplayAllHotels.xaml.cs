@@ -198,6 +198,10 @@ namespace Projekat.HostPages
                             filteredHotels = hotelController.RoomsAndGuestsOr(filteredHotels, rooms, guests);
                         }
                     }
+                    else
+                    {
+                        filteredHotels = new List<Hotel>();
+                    }
                 }
             }
             filteredHotels = filteredHotels.Where(h => h.HotelStatus == HotelStatus.Accepted || h.HotelStatus == HotelStatus.Pending);

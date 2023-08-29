@@ -5,20 +5,7 @@ using Projekat.Controller;
 using Projekat.DTOs;
 using Projekat.GuestPages;
 using Projekat.HostPages;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Projekat
 {
@@ -40,6 +27,11 @@ namespace Projekat
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrEmpty(Email.Text) || string.IsNullOrEmpty(Password.Password))
+            {
+                MessageBox.Show("Please fill all field!.");
+                return;
+            }
 
             loginDTO.Email = Email.Text;
             loginDTO.Password = Password.Password;
@@ -50,7 +42,7 @@ namespace Projekat
 
                 if (user.Blocked)
                 {
-                    MessageBox.Show("You are blocked and can't log in.");
+                    MessageBox.Show("You are blocked and can't log in!");
                     return;
                 }
 
@@ -74,7 +66,7 @@ namespace Projekat
             if (remainingAttempts < 1)
             {
                 MessageBox.Show("You have used all attempts.\n" +
-                                "You are forbidden from logging in again.");
+                                "You are forbidden from logging in again!");
                 this.Close();
             }
 
@@ -86,7 +78,7 @@ namespace Projekat
             if (attemptsNumber >= maxAttempts)
             {
                 MessageBox.Show("You have used " + maxAttempts + " attempts.\n" +
-                                "You are forbidden from logging in again.");
+                                "You are forbidden from logging in again!");
                 this.Close();
             }
         }
