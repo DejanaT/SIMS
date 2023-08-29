@@ -39,6 +39,7 @@
             <ComboBoxItem Content="Hotel code" Tag="HotelCode"/>
             <ComboBoxItem Content="Hotel name" Tag="HotelName"/>
             <ComboBoxItem Content="Stars" Tag="Stars"/>
+            <ComboBoxItem Content="Year of constr." Tag="Year of constr."/>
             <ComboBoxItem Content="Apartments" Tag="Apartments"/>
         </ComboBox>
 

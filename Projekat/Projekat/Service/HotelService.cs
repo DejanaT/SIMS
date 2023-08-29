@@ -120,6 +120,11 @@ namespace Projekat.Service
             return hotelRepository.GetHotelsByStars(query);
         }
 
+        public IEnumerable<Hotel> GetHotelsByYear(string query)
+        {
+            return hotelRepository.GetHotelsByYear(query);
+        }
+
         public IEnumerable<Hotel> GetHotelsByNumberOfRooms(IEnumerable<Hotel> hotels, int numberOfRooms)
         {
             return hotelRepository.GetHotelsByNumberOfRooms(hotels, numberOfRooms);

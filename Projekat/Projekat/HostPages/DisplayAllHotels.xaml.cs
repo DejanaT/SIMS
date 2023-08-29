@@ -159,6 +159,10 @@ namespace Projekat.HostPages
             {
                 filteredHotels = hotelController.GetHotelsByStars(query);
             }
+            else if (parameter == "Year of constr.")
+            {
+                filteredHotels = hotelController.GetHotelsByYear(query);
+            }
             else if (parameter == "Apartments")
             {
 
@@ -204,7 +208,7 @@ namespace Projekat.HostPages
                     }
                 }
             }
-            filteredHotels = filteredHotels.Where(h => h.HotelStatus == HotelStatus.Accepted || h.HotelStatus == HotelStatus.Pending);
+            filteredHotels = filteredHotels.Where(h => (h.HotelStatus == HotelStatus.Accepted || h.HotelStatus == HotelStatus.Pending) && h.HostJmbg == host.JMBG);
             ApplySorting(filteredHotels);
         }
 

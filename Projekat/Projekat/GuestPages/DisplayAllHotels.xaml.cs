@@ -29,13 +29,12 @@ namespace Projekat.GuestPages
         public DisplayAllHotels()
         {
             InitializeComponent();
-            allHotels = hotelController.GetHotels();
             ShowApprovedHotels();
-            //dataGrid.ItemsSource = allHotels;
         }
 
         private void ShowApprovedHotels()
         {
+            allHotels = hotelController.GetHotels();
             var approvedHotels = allHotels.Where(h => h.HotelStatus == HotelStatus.Accepted);
             dataGrid.ItemsSource = approvedHotels;
         }
@@ -137,6 +136,10 @@ namespace Projekat.GuestPages
             else if (parameter == "Stars")
             {
                 filteredHotels = hotelController.GetHotelsByStars(query);
+            }
+            else if (parameter == "Year of constr.")
+            {
+                filteredHotels = hotelController.GetHotelsByYear(query);
             }
             else if (parameter == "Apartments")
             {
