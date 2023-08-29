@@ -69,12 +69,17 @@ namespace Projekat.AdministratorPages
                     MessageBox.Show("User with same jmbg already exists");
                     return;
                 }
+                else if(jmbg.Length != 13)
+                {
+                    MessageBox.Show("JMBG must be exactly 13 digits");
+                    return;
+                }
 
                 userController.Create(userNew);
             }
             else
             {
-                MessageBox.Show("Error: you must fill in the fields");
+                MessageBox.Show("Error: you must fill in the fields!");
             }
 
 

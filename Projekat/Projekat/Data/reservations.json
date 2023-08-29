@@ -2,91 +2,51 @@
   {
     "GuestJmbg": "1234569632525",
     "HostJmbg": "9876543213211",
-    "ApartmentName": "ap1",
-    "ReservationDate": "2023-08-29",
-    "Status": 3,
-    "ReasonReject": "",
-    "Id": "e6c0afaf-9128-42e5-a93e-ea691453cd62",
-    "Deleted": true
-  },
-  {
-    "GuestJmbg": "1234569632525",
-    "HostJmbg": "9876543213211",
-    "ApartmentName": "ap1",
-    "ReservationDate": "2023-08-30",
-    "Status": 3,
-    "ReasonReject": "",
-    "Id": "0dc799c1-b960-4aa8-8f29-88aa2aabeb51",
-    "Deleted": true
-  },
-  {
-    "GuestJmbg": "1234569632525",
-    "HostJmbg": "9876543213211",
-    "ApartmentName": "ap2",
-    "ReservationDate": "2023-08-29",
-    "Status": 3,
-    "ReasonReject": "",
-    "Id": "ac54f6df-1ed6-4403-ba4b-ac824156a2ba",
-    "Deleted": true
-  },
-  {
-    "GuestJmbg": "1234569632525",
-    "HostJmbg": "9876543213211",
-    "ApartmentName": "ap2",
+    "ApartmentName": "Ap1",
     "ReservationDate": "2023-08-30",
     "Status": 2,
-    "ReasonReject": "Zao mi je moramo da Vas odbijemo",
-    "Id": "e528cd85-e82a-4029-8def-3f3c1ec37abf",
+    "ReasonReject": "zao mi je",
+    "Id": "4ac575d9-7fa8-4402-9169-4d230eb89072",
     "Deleted": false
   },
   {
     "GuestJmbg": "1234569632525",
-    "HostJmbg": "9876543213211",
-    "ApartmentName": "ap1",
-    "ReservationDate": "2023-08-29",
-    "Status": 0,
-    "ReasonReject": "",
-    "Id": "cf66a28c-215e-4891-a7f3-5b02548f95a7",
-    "Deleted": false
-  },
-  {
-    "GuestJmbg": "1234569632525",
-    "HostJmbg": "9876543213211",
-    "ApartmentName": "ap1",
+    "HostJmbg": "1234563692581",
+    "ApartmentName": "Ap3",
     "ReservationDate": "2023-08-30",
     "Status": 2,
-    "ReasonReject": "zao nam je",
-    "Id": "974a5677-aa39-4343-b927-8dac0d5c67ee",
+    "ReasonReject": "nema mesta",
+    "Id": "3526c160-40e8-4d49-bf18-7d229e8e5990",
     "Deleted": false
   },
   {
     "GuestJmbg": "1234569632525",
     "HostJmbg": "9876543213211",
-    "ApartmentName": "ap3",
-    "ReservationDate": "2023-08-30",
-    "Status": 0,
-    "ReasonReject": "",
-    "Id": "84f74903-9e10-4509-9c38-1a9b627257b6",
-    "Deleted": false
-  },
-  {
-    "GuestJmbg": "1234569632525",
-    "HostJmbg": "9876543213211",
-    "ApartmentName": "Soba 5",
-    "ReservationDate": "2023-08-30",
-    "Status": 3,
-    "ReasonReject": "",
-    "Id": "9cbad5ec-0516-458c-b289-8f3b10f5cf8b",
-    "Deleted": true
-  },
-  {
-    "GuestJmbg": "1234569632525",
-    "HostJmbg": "9876543213211",
-    "ApartmentName": "ap2",
+    "ApartmentName": "Ap1",
     "ReservationDate": "2023-08-31",
+    "Status": 3,
+    "ReasonReject": "",
+    "Id": "27dbdeb9-a820-4220-bcbb-2b238dce0a6f",
+    "Deleted": true
+  },
+  {
+    "GuestJmbg": "1234569632525",
+    "HostJmbg": "1234563692581",
+    "ApartmentName": "Ap3",
+    "ReservationDate": "2023-08-31",
+    "Status": 0,
+    "ReasonReject": "",
+    "Id": "7d3a03b6-941d-4ac7-a4c1-9644765d8458",
+    "Deleted": false
+  },
+  {
+    "GuestJmbg": "1234569632525",
+    "HostJmbg": "9876543213211",
+    "ApartmentName": "Ap2",
+    "ReservationDate": "2023-08-30",
     "Status": 1,
     "ReasonReject": "",
-    "Id": "185c2f58-e66c-46fe-bc19-b783d551bb96",
+    "Id": "00f16c49-0f05-49bd-b522-25b9c448cb26",
     "Deleted": false
   }
 ]

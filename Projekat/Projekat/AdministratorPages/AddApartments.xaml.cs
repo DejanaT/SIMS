@@ -55,17 +55,26 @@ namespace Projekat.AdministratorPages
 
         private void SaveChanges_Click(object sender, RoutedEventArgs e)
         {
-            foreach (var apartment in addedApartments)
+            if (addedApartments.Count == 0)
             {
-                hotel.Apartments.Add(apartment.Name, apartment);
+                var result = MessageBox.Show("You haven't added any apartments. Are you sure you want to save only the hotel?",
+                                             "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    DialogResult = true;
+                }
             }
-            DialogResult = true;
+            else
+            {
+                foreach (var apartment in addedApartments)
+                {
+                    hotel.Apartments.Add(apartment.Name, apartment);
+                }
+                DialogResult = true;
+            }
         }
 
-        private void Skip_Click(object sender, RoutedEventArgs e)
-        {
-            DialogResult = true;
-        }
 
         private void ClearInputs()
         {

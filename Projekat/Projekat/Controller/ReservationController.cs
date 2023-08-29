@@ -50,16 +50,6 @@ namespace Projekat.Controller
             reservationService.Update(selectedReservation);
         }
 
-        /* public void UpdateApartmentReservationCancel(Reservation reservation)
-         {
-             reservationService.UpdateApartmentReservationCancel(reservation);
-         }
-
-         public void UpdateHotelReservationCancel(Reservation reservation)
-         {
-             reservationService.UpdateHotelReservationCancel(reservation);
-         }*/
-
         public void CancelReservation(Reservation reservation)
         {
             Apartment apartment = apartmentService.FindApartmentByReservation(reservation);

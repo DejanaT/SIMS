@@ -1,72 +1,20 @@
 [
   {
     "HotelCode": "1",
-    "HotelName": "Hilton",
-    "YearOfConstruction": 1986,
+    "HotelName": "Park",
+    "YearOfConstruction": 1890,
     "Apartments": {
-      "ap1": {
-        "Name": "ap1",
+      "Ap1": {
+        "Name": "Ap1",
         "Description": "mali",
         "RoomsQuantity": 1,
         "MaxNumberOfGuests": 2,
-        "Reservations": [
-          {
-            "GuestJmbg": "1234569632525",
-            "HostJmbg": "9876543213211",
-            "ApartmentName": "ap1",
-            "ReservationDate": "2023-08-29",
-            "Status": 0,
-            "ReasonReject": "",
-            "Id": "cf66a28c-215e-4891-a7f3-5b02548f95a7",
-            "Deleted": false
-          }
-        ],
-        "Id": "248f246d-ed49-4b81-af48-0fbda50432f5",
-        "Deleted": false
-      },
-      "ap3": {
-        "Name": "ap3",
-        "Description": "sa doruckom",
-        "RoomsQuantity": 3,
-        "MaxNumberOfGuests": 6,
-        "Reservations": [
-          {
-            "GuestJmbg": "1234569632525",
-            "HostJmbg": "9876543213211",
-            "ApartmentName": "ap3",
-            "ReservationDate": "2023-08-30",
-            "Status": 0,
-            "ReasonReject": "",
-            "Id": "84f74903-9e10-4509-9c38-1a9b627257b6",
-            "Deleted": false
-          }
-        ],
-        "Id": "5bbfda36-bbe3-4b33-83b7-20e45ee8f369",
-        "Deleted": false
-      },
-      "Soba 5": {
-        "Name": "Soba 5",
-        "Description": "mala soba",
-        "RoomsQuantity": 1,
-        "MaxNumberOfGuests": 2,
         "Reservations": [],
-        "Id": "9e68fa4a-06f7-4ad4-89a4-4c3e70254632",
+        "Id": "aa32f4fe-013a-48a2-b1f9-2443b947e27c",
         "Deleted": false
-      }
-    },
-    "NumberOfStars": 5,
-    "HostJmbg": "9876543213211",
-    "HotelStatus": 1,
-    "Id": "9ac9b39e-47a3-4ef3-9a09-44835944ef79",
-    "Deleted": false
-  },
-  {
-    "HotelCode": "2",
-    "HotelName": "Moskva",
-    "YearOfConstruction": 1987,
-    "Apartments": {
-      "ap2": {
-        "Name": "ap2",
+      },
+      "Ap2": {
+        "Name": "Ap2",
         "Description": "velik",
         "RoomsQuantity": 3,
         "MaxNumberOfGuests": 9,
@@ -74,33 +22,76 @@
           {
             "GuestJmbg": "1234569632525",
             "HostJmbg": "9876543213211",
-            "ApartmentName": "ap2",
-            "ReservationDate": "2023-08-31",
+            "ApartmentName": "Ap2",
+            "ReservationDate": "2023-08-30",
             "Status": 1,
             "ReasonReject": "",
-            "Id": "185c2f58-e66c-46fe-bc19-b783d551bb96",
+            "Id": "00f16c49-0f05-49bd-b522-25b9c448cb26",
             "Deleted": false
           }
         ],
-        "Id": "1cf2baba-54ed-4d75-b768-f27b8206cf5a",
+        "Id": "bee2d25b-8e24-4c22-9a4d-9b6f20369361",
         "Deleted": false
       }
     },
-    "NumberOfStars": 4,
+    "NumberOfStars": 3,
     "HostJmbg": "9876543213211",
     "HotelStatus": 1,
-    "Id": "0cbce586-9ae1-42ef-bf79-e55e427a8a62",
+    "Id": "85d6d8f7-66f1-4dcd-82ae-9787d275a647",
     "Deleted": false
   },
   {
+    "HotelCode": "2",
+    "HotelName": "Sirmium",
+    "YearOfConstruction": 1890,
+    "Apartments": {},
+    "NumberOfStars": 3,
+    "HostJmbg": "1234563692581",
+    "HotelStatus": 2,
+    "Id": "acc1582b-4e00-4519-a5fa-eb28d3dd15c3",
+    "Deleted": true
+  },
+  {
     "HotelCode": "3",
-    "HotelName": "Park",
-    "YearOfConstruction": 2014,
+    "HotelName": "Sheraton",
+    "YearOfConstruction": 1890,
     "Apartments": {},
     "NumberOfStars": 4,
     "HostJmbg": "9876543213211",
-    "HotelStatus": 0,
-    "Id": "9509803c-207f-48ce-aaa0-2534c3e7a191",
+    "HotelStatus": 2,
+    "Id": "ec1e8ab1-a547-4215-8504-d3abfe25cb00",
+    "Deleted": true
+  },
+  {
+    "HotelCode": "4",
+    "HotelName": "Moskva",
+    "YearOfConstruction": 1899,
+    "Apartments": {
+      "Ap3": {
+        "Name": "Ap3",
+        "Description": "sa doruckom",
+        "RoomsQuantity": 2,
+        "MaxNumberOfGuests": 3,
+        "Reservations": [
+          {
+            "GuestJmbg": "1234569632525",
+            "HostJmbg": "1234563692581",
+            "ApartmentName": "Ap3",
+            "ReservationDate": "2023-08-31",
+            "Status": 0,
+            "ReasonReject": "",
+            "Id": "7d3a03b6-941d-4ac7-a4c1-9644765d8458",
+            "Deleted": false
+          }
+        ],
+        "Id": "013d8f33-e018-4ac4-92ef-49c0c27db7f2",
+        "Deleted": false
+      }
+    },
+    "NumberOfStars": 2,
+    "HostJmbg": "1234563692581",
+    "HotelStatus": 1,
+    "Id": "e296f8a7-23c6-4d8d-a85f-87faa2780a13",
     "Deleted": false
   }
 ]
