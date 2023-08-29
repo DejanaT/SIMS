@@ -132,6 +132,10 @@ namespace Projekat.AdministratorPages
             {
                 filteredHotels = hotelController.GetHotelsByStars(query);
             }
+            else if (parameter == "Year of constr.")
+            {
+                filteredHotels = hotelController.GetHotelsByYear(query);
+            }
             else if (parameter == "Apartments")
             {
 

@@ -116,6 +116,12 @@ namespace Projekat.Repository
             return hotels.Where(h => h.NumberOfStars.ToString().Contains(query));
         }
 
+        public IEnumerable<Hotel> GetHotelsByYear(string query)
+        {
+            hotels = GetAll();
+            return hotels.Where(h => h.YearOfConstruction.ToString().Contains(query));
+        }
+
         public IEnumerable<Hotel> GetHotelsByNumberOfRooms(IEnumerable<Hotel> hotels, int numberOfRooms)
         {
             return hotels.Where(hotel => hotel.Apartments.Values.Any(apartment => apartment.RoomsQuantity == numberOfRooms));

@@ -71,6 +71,11 @@ namespace Projekat.Controller
             return hotelService.GetHotelsByStars(query);
         }
 
+        public IEnumerable<Hotel> GetHotelsByYear(string query)
+        {
+            return hotelService.GetHotelsByYear(query);
+        }
+
         public IEnumerable<Hotel> GetHotelsByNumberOfRooms(IEnumerable<Hotel> hotels, int numberOfRooms)
         {
             return hotelService.GetHotelsByNumberOfRooms(hotels, numberOfRooms);
