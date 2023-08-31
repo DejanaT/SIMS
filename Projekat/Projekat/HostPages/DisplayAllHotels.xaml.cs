@@ -14,7 +14,6 @@ namespace Projekat.HostPages
     public partial class DisplayAllHotels : Page
     {
         private HotelController hotelController = new HotelController();
-        private UserController userController = new UserController();
         private List<Hotel> allHotels = new List<Hotel>();
         private User host = new User();
 
@@ -45,10 +44,10 @@ namespace Projekat.HostPages
 
             IEnumerable<Hotel> sortedHotels = dataGrid.ItemsSource as IEnumerable<Hotel>;
 
-            ApplySorting(sortedHotels, sortOption);
+            Sort(sortedHotels, sortOption);
         }
 
-        private void ApplySorting(IEnumerable<Hotel> hotels, string sortOption = null)
+        private void Sort(IEnumerable<Hotel> hotels, string sortOption = null)
         {
             if (sortOption == null)
             {
@@ -85,7 +84,7 @@ namespace Projekat.HostPages
             if (selected != null)
             {
                 hotelController.AcceptHotel(selected);
-                MessageBox.Show("Hotel is successfully accepted.");
+                MessageBox.Show("Hotel is successfully accepted!");
                 ShowHotels();
 
             }
@@ -100,7 +99,7 @@ namespace Projekat.HostPages
             {
                 hotelController.DeleteHotel(selected);
                 allHotels.Remove(selected);
-                MessageBox.Show("Hotel is successfully rejected.");
+                MessageBox.Show("Hotel is successfully rejected!");
                 ShowHotels();
 
             }
@@ -209,7 +208,7 @@ namespace Projekat.HostPages
                 }
             }
             filteredHotels = filteredHotels.Where(h => (h.HotelStatus == HotelStatus.Accepted || h.HotelStatus == HotelStatus.Pending) && h.HostJmbg == host.JMBG);
-            ApplySorting(filteredHotels);
+            Sort(filteredHotels);
         }
 
         private void Apartment_SelectionChanged(object sender, SelectionChangedEventArgs e)

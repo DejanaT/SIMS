@@ -86,7 +86,11 @@ namespace Projekat.Service
             Hotel hotel = FindByCode(code);
             if (hotel != null)
             {
-                hotelRepository.AddApartmentsToHotel(code, apartments);
+                foreach (var apartment in apartments)
+                {
+                    hotel.Apartments.Add(apartment.Name, apartment);
+                }
+                hotelRepository.UpdateHotel(hotel);
             }
             else
             {
@@ -104,60 +108,120 @@ namespace Projekat.Service
             hotel.HotelStatus = HotelStatus.Accepted;
             hotelRepository.UpdateHotel(hotel);
         }
-
         public IEnumerable<Hotel> GetHotelsByCode(string query)
         {
-            return hotelRepository.GetHotelsByCode(query);
+            List<Hotel> hotels = hotelRepository.GetAll();
+            return hotels.Where(h => h.HotelCode.ToLower().Contains(query));
         }
 
         public IEnumerable<Hotel> GetHotelsByName(string query)
         {
-            return hotelRepository.GetHotelsByName(query);
+            List<Hotel> hotels = hotelRepository.GetAll();
+            return hotels.Where(h => h.HotelName.ToLower().Contains(query));
         }
 
         public IEnumerable<Hotel> GetHotelsByStars(string query)
         {
-            return hotelRepository.GetHotelsByStars(query);
+            List<Hotel> hotels = hotelRepository.GetAll();
+            return hotels.Where(h => h.NumberOfStars.ToString().Contains(query));
         }
 
         public IEnumerable<Hotel> GetHotelsByYear(string query)
         {
-            return hotelRepository.GetHotelsByYear(query);
+            List<Hotel> hotels = hotelRepository.GetAll();
+            return hotels.Where(h => h.YearOfConstruction.ToString().Contains(query));
         }
 
         public IEnumerable<Hotel> GetHotelsByNumberOfRooms(IEnumerable<Hotel> hotels, int numberOfRooms)
         {
-            return hotelRepository.GetHotelsByNumberOfRooms(hotels, numberOfRooms);
+            return hotels.Where(hotel => hotel.Apartments.Values.Any(apartment => apartment.RoomsQuantity == numberOfRooms));
         }
 
         public IEnumerable<Hotel> GetHotelsByNumberOfGuests(IEnumerable<Hotel> hotels, int numberOfGuests)
         {
-            return hotelRepository.GetHotelsByNumberOfGuests(hotels, numberOfGuests);
+            return hotels.Where(hotel => hotel.Apartments.Values.Any(apartment => apartment.MaxNumberOfGuests == numberOfGuests));
         }
 
         public IEnumerable<Hotel> RoomsAndGuestsAnd(IEnumerable<Hotel> hotels, int numberOfRooms, int numberOfGuests)
         {
-            return hotelRepository.RoomsAndGuestsAnd(hotels, numberOfRooms, numberOfGuests);
+            return hotels.Where(hotel => hotel.Apartments.Values.Any(apartment => apartment.RoomsQuantity == numberOfRooms && apartment.MaxNumberOfGuests == numberOfGuests));
         }
 
         public IEnumerable<Hotel> RoomsAndGuestsOr(IEnumerable<Hotel> hotels, int numberOfRooms, int numberOfGuests)
         {
-            return hotelRepository.RoomsAndGuestsOr(hotels, numberOfRooms, numberOfGuests);
+            return hotels.Where(hotel => hotel.Apartments.Values.Any(apartment => apartment.RoomsQuantity == numberOfRooms || apartment.MaxNumberOfGuests == numberOfGuests));
         }
 
         public void UpdateApartments(Hotel hotel)
         {
-            hotelRepository.UpdateApartments(hotel);
+            List<Hotel> hotels = hotelRepository.GetAll();
+
+            var hotel1 = hotels.FirstOrDefault(h => h.Id == hotel.Id);
+
+            if (hotel1 != null)
+            {
+                foreach (var apartment in hotel.Apartments.Values)
+                {
+                    if (hotel1.Apartments.ContainsKey(apartment.Name))
+                    {
+                        var existingApartment = hotel1.Apartments[apartment.Name];
+                        existingApartment.Reservations = apartment.Reservations;
+                    }
+                }
+
+                SaveChanges(hotels);
+            }
         }
+
 
         public List<Hotel> GetApprovedHotels()
         {
-            return hotelRepository.GetApprovedHotels();
+            List<Hotel> hotels = hotelRepository.GetAll();
+            List<Hotel> approvedHotels = hotels.Where(h => h.HotelStatus == HotelStatus.Accepted).ToList();
+            return approvedHotels;
         }
 
         public Hotel FindHotelByApartment(Apartment apartment)
         {
-            return hotelRepository.FindHotelByApartment(apartment);
+            List<Hotel>hotels = hotelRepository.GetAll();
+            foreach (Hotel hotel in hotels)
+            {
+                if (hotel.Apartments != null && hotel.Apartments.Values.Any(a => a.Id == apartment.Id))
+                {
+                    return hotel;
+                }
+            }
+            return null;
+        }
+
+        public void UpdateHotelReservationCancel(Reservation reservation, Hotel hotel)
+        {
+            Apartment apartment = apartmentRepository.FindByName(reservation.ApartmentName);
+            if (hotel != null)
+            {
+                var reservationInHotel = hotel.Apartments[apartment.Name].Reservations.FirstOrDefault(r => r.Id == reservation.Id);
+
+                if (reservationInHotel != null)
+                {
+                    hotel.Apartments[apartment.Name].Reservations.Remove(reservationInHotel);
+                    hotelRepository.UpdateHotel(hotel);
+                }
+            }
+        }
+
+        public void UpdateHotelReservationApprove(Reservation reservation, Hotel hotel)
+        {
+            Apartment apartment = apartmentRepository.FindByName(reservation.ApartmentName);
+            if (hotel != null && apartment != null)
+            {
+                var reservationInHotel = hotel.Apartments[apartment.Name].Reservations.FirstOrDefault(r => r.Id == reservation.Id);
+
+                if (reservationInHotel != null)
+                {
+                    reservationInHotel.Status = ReservationStatus.Accepted;
+                    hotelRepository.UpdateHotel(hotel);
+                }
+            }
         }
     }
 }

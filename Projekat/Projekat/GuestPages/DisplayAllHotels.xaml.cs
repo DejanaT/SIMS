@@ -52,10 +52,10 @@ namespace Projekat.GuestPages
 
             IEnumerable<Hotel> sortedHotels = dataGrid.ItemsSource as IEnumerable<Hotel>;
 
-            ApplySorting(sortedHotels, sortOption);
+            Sort(sortedHotels, sortOption);
         }
 
-        private void ApplySorting(IEnumerable<Hotel> hotels, string sortOption = null)
+        private void Sort(IEnumerable<Hotel> hotels, string sortOption = null)
         {
             if (sortOption == null)
             {
@@ -187,7 +187,7 @@ namespace Projekat.GuestPages
                 }
             }
             filteredHotels = filteredHotels.Where(h => h.HotelStatus == HotelStatus.Accepted);
-            ApplySorting(filteredHotels);
+            Sort(filteredHotels);
         }
 
         private void Apartment_SelectionChanged(object sender, SelectionChangedEventArgs e)

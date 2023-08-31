@@ -73,20 +73,5 @@ namespace Projekat.Repository
         }
 
 
-        public List<Reservation> GetReservationsByHostJmbg(string hostJmbg, List<Hotel> hotels)
-         {
-             return hotels.SelectMany(hotel => hotel.Apartments.Values).Where(apartment => apartment.Reservations != null)
-                          .SelectMany(apartment => apartment.Reservations).Where(reservation => reservation.Status == ReservationStatus.Pending
-                                     || reservation.Status == ReservationStatus.Accepted).ToList();
-         }
-
-        public List<Reservation> GetAllByHostJmbg(string hostJmbg)
-        {
-            reservations = GetAll();
-            return reservations.Where(r => r.HostJmbg == hostJmbg && r.Status != ReservationStatus.Canceled && r.Status != ReservationStatus.Rejected).ToList();
-
-        }
-
-
     }
 }

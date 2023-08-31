@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -69,19 +70,20 @@ namespace Projekat.AdministratorPages
 
             if (hotelController.FindByCode(HotelCode.Text) != null)
             {
-                MessageBox.Show("Error: Hotel with the same HotelCode already exists");
+                string errorMessage = "Error: Hotel with the same HotelCode already exists!";
+                MessageBox.Show(errorMessage);
                 return false;
             }
 
             if (!int.TryParse(NumberOfStars.Text, out int stars) || stars < 1 || stars > 5)
             {
-                MessageBox.Show("Error: Number of stars must be between 1 and 5.");
+                MessageBox.Show("Error: Number of stars must be between 1 and 5!");
                 return false;
             }
 
-            if (!int.TryParse(YearOfConstruction.Text, out int year) || year <= 0)
+            if (!int.TryParse(YearOfConstruction.Text, out int year) || year <= 0 || !Regex.IsMatch(YearOfConstruction.Text, @"^\d{4}$"))
             {
-                MessageBox.Show("Error: Year of construction must be a positive integer.");
+                MessageBox.Show("Error: Year of construction must be a positive four-digit integer!");
                 return false;
             }
 

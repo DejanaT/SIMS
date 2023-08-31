@@ -13,8 +13,6 @@ namespace Projekat.Controller
     public class ReservationController
     {
         private ReservationService reservationService = new ReservationService();
-        private ApartmentService apartmentService = new ApartmentService();
-        private HotelService hotelService = new HotelService();
 
         public List<Reservation> GetReservations()
         {
@@ -52,57 +50,17 @@ namespace Projekat.Controller
 
         public void CancelReservation(Reservation reservation)
         {
-            Apartment apartment = apartmentService.FindApartmentByReservation(reservation);
-            Hotel hotel = hotelService.FindHotelByApartment(apartment);
-
-            if (apartment != null)
-            {
-                reservation.Status = ReservationStatus.Canceled;
-                reservation.Deleted = true;
-                reservationService.Update(reservation);
-                reservationService.UpdateApartmentReservationCancel(reservation, apartment);
-
-                if (hotel != null)
-                {
-                    reservationService.UpdateHotelReservationCancel(reservation, hotel);
-                }
-            }
+            reservationService.CancelReservation(reservation);
         }
 
         public void RejectReservation(Reservation reservation)
         {
-            Apartment apartment = apartmentService.FindApartmentByReservation(reservation);
-            Hotel hotel = hotelService.FindHotelByApartment(apartment);
-
-            if (apartment != null)
-            {
-                reservation.Status = ReservationStatus.Rejected;
-                reservationService.Update(reservation);
-                reservationService.UpdateApartmentReservationCancel(reservation, apartment);
-
-                if (hotel != null)
-                {
-                    reservationService.UpdateHotelReservationCancel(reservation, hotel);
-                }
-            }
+            reservationService.RejectReservation(reservation);
         }
 
         public void ApproveReservation(Reservation reservation)
         {
-            Apartment apartment = apartmentService.FindApartmentByReservation(reservation);
-            Hotel hotel = hotelService.FindHotelByApartment(apartment);
-
-            if (apartment != null)
-            {
-                reservation.Status = ReservationStatus.Accepted;
-                reservationService.Update(reservation);
-                reservationService.UpdateApartmentReservationApprove(reservation, apartment);
-
-                if (hotel != null)
-                {
-                    reservationService.UpdateHotelReservationApprove(reservation, hotel);
-                }
-            }
+            reservationService.ApproveReservation(reservation);
         }
 
         public List<Reservation> GetReservationsByHostJmbg(string hostJmbg, List<Hotel> hotels)

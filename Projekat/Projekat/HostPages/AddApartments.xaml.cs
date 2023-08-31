@@ -88,25 +88,26 @@ namespace Projekat.HostPages
             if (String.IsNullOrEmpty(Name.Text) || String.IsNullOrEmpty(Description.Text) ||
                 String.IsNullOrEmpty(Number.Text) || String.IsNullOrEmpty(MaxGuests.Text) )
             {
-                MessageBox.Show("Error: you must fill in all fields");
+                MessageBox.Show("Error: you must fill in all fields!");
                 return false;
             }
 
             if (apc.FindByName(Name.Text) != null)
             {
-                MessageBox.Show("Error: Apartment with the same Name already exists");
+                string error = "Error: Apartment with name:" + Name.Text + "already exists";
+                MessageBox.Show(error);
                 return false;
             }
 
             if (!int.TryParse(Number.Text, out int number) || number <= 0)
             {
-                MessageBox.Show("Error: Number of rooms must be positive integer.");
+                MessageBox.Show("Error: Number of rooms must be positive integer!");
                 return false;
             }
 
             if (!int.TryParse(MaxGuests.Text, out int maxG) || maxG <= 0)
             {
-                MessageBox.Show("Error: Max Guests must be a positive integer.");
+                MessageBox.Show("Error: Max Guests must be a positive integer!");
                 return false;
             }
 

@@ -15,7 +15,6 @@ namespace Projekat.HostPages
     {
         private Hotel selected;
         private ReservationController reservationController = new ReservationController();
-        private HotelController hotelController = new HotelController();
         private ApartmentController apartmentController = new ApartmentController();
         private User host = new User();
 

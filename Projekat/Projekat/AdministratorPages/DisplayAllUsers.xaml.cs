@@ -39,7 +39,7 @@ namespace Projekat.AdministratorPages
                 filteredUsers = allUsers.Where(u => u.UserType.ToString() == userFilter);
             }
 
-            ApplySorting(filteredUsers);
+            Sort(filteredUsers);
         }
 
         private void Sort_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -54,10 +54,10 @@ namespace Projekat.AdministratorPages
 
             IEnumerable<User> sortedUsers = dataGrid.ItemsSource as IEnumerable<User>;
 
-            ApplySorting(sortedUsers, sortOption);
+            Sort(sortedUsers, sortOption);
         }
 
-        private void ApplySorting(IEnumerable<User> users, string sortOption = null)
+        private void Sort(IEnumerable<User> users, string sortOption = null)
         {
             if (sortOption == null)
             {
@@ -97,7 +97,7 @@ namespace Projekat.AdministratorPages
             {
                 userController.BlockUser(selectedUser);
                 dataGrid.Items.Refresh();
-                MessageBox.Show($"You have successfully blocked user :  { selectedUser.Name} {selectedUser.Surname}.");
+                MessageBox.Show($"You have successfully blocked user : { selectedUser.Name} {selectedUser.Surname}.");
             }
             else
             {

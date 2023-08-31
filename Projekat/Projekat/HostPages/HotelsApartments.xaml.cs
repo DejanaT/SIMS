@@ -57,7 +57,7 @@ namespace Projekat.HostPages
                     selectedHotel.Apartments.Add(apartment.Name, apartment);
                 }
                 hotelController.Update(selectedHotel);
-                MessageBox.Show("Apartment(s) added successfully.");
+                MessageBox.Show("Apartment(s) added successfully!");
                 dataGrid.Items.Refresh();
             }
         }

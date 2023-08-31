@@ -1,5 +1,6 @@
 ﻿using Project.Model;
 using Projekat.Model;
+using Projekat.Model.Enums;
 using Projekat.Repository;
 using System;
 using System.Collections.Generic;
@@ -32,7 +33,7 @@ namespace Projekat.Service
         public void Create(Apartment apartment)
         {
             apartment.Id = Guid.NewGuid().ToString();
-            bool isApartmentExist = apartmentRepository.GetAll().Any(a => a.Id == apartment.Id || a.Name == apartment.Name);
+            bool isApartmentExist = apartmentRepository.GetAll().Any(a => a.Name == apartment.Name && !a.Deleted);
 
             if (!isApartmentExist)
             {
@@ -63,7 +64,43 @@ namespace Projekat.Service
 
         public Apartment FindApartmentByReservation(Reservation reservation)
         {
-            return apartmentRepository.FindApartmentByReservation(reservation);
+            List<Apartment> apartments = apartmentRepository.GetAll();
+            foreach (Apartment apartment in apartments)
+            {
+                if (apartment.Reservations != null && apartment.Reservations.Any(r => r.Id == reservation.Id))
+                {
+                    return apartment;
+                }
+            }
+            return null;
+        }
+
+        public void UpdateApartmentReservationCancel(Reservation reservation, Apartment apartment)
+        {
+            if (apartment != null)
+            {
+                var reservationInApartment = apartment.Reservations.FirstOrDefault(r => r.Id == reservation.Id);
+
+                if (reservationInApartment != null)
+                {
+                    apartment.Reservations.Remove(reservationInApartment);
+                    apartmentRepository.UpdateApartment(apartment);
+                }
+            }
+        }
+
+        public void UpdateApartmentReservationApprove(Reservation reservation, Apartment apartment)
+        {
+            if (apartment != null)
+            {
+                var reservationInApartment = apartment.Reservations.FirstOrDefault(r => r.Id == reservation.Id);
+
+                if (reservationInApartment != null)
+                {
+                    reservationInApartment.Status = ReservationStatus.Accepted;
+                    apartmentRepository.UpdateApartment(apartment);
+                }
+            }
         }
     }
 }

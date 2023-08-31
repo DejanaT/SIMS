@@ -2,20 +2,10 @@
 using Projekat.Controller;
 using Projekat.Model;
 using Projekat.Model.Enums;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Projekat.GuestPages
 {
@@ -112,7 +102,7 @@ namespace Projekat.GuestPages
 
             if (string.IsNullOrEmpty(hotel) || string.IsNullOrEmpty(apartment) || string.IsNullOrEmpty(date))
             {
-                MessageBox.Show("You muss fill all fields!");
+                MessageBox.Show("You must fill all fields!");
                 return;
             }
 
@@ -132,10 +122,11 @@ namespace Projekat.GuestPages
             }
             else
             {
-                
+
                 if (selectedApartment.Reservations.Any(r => r.ReservationDate == newReservation.ReservationDate))
                 {
-                    MessageBox.Show("Reservation already exists for this date!");
+                    string error = "Reservation already exists for:" + newReservation.ReservationDate;
+                    MessageBox.Show(error);
                     return;
                 }
             }
