@@ -93,18 +93,17 @@ namespace Projekat.GuestPages
             string apartment = ApartmentComboBox.SelectedItem as string;
             string date = Date.SelectedDate?.ToString("yyyy-MM-dd");
 
+            if (string.IsNullOrEmpty(hotel) || string.IsNullOrEmpty(apartment) || string.IsNullOrEmpty(date))
+            {
+                MessageBox.Show("You must fill all fields!");
+                return;
+            }
             string selectedCode = hotel.Split('-')[0].Trim();
 
 
             Apartment selectedApartment = apartmentController.FindByName(apartment);
             Hotel selectedHotel = hotelController.FindByCode(selectedCode);
 
-
-            if (string.IsNullOrEmpty(hotel) || string.IsNullOrEmpty(apartment) || string.IsNullOrEmpty(date))
-            {
-                MessageBox.Show("You must fill all fields!");
-                return;
-            }
 
             Reservation newReservation = new Reservation
             {
