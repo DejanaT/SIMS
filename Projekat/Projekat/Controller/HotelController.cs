@@ -1,4 +1,5 @@
 ﻿using Project.Model;
+using Projekat.Model;
 using Projekat.Service;
 using System;
 using System.Collections.Generic;
@@ -29,11 +30,6 @@ namespace Projekat.Controller
         public void DeleteHotel(Hotel h)
         {
             hotelService.DeleteHotel(h);
-        }
-
-        public bool IsApartmentExist(Hotel h)
-        {
-            return hotelService.IsHotelExist(h);
         }
 
         public void AddApartmentsToHotel(string code, List<Apartment> apartments)

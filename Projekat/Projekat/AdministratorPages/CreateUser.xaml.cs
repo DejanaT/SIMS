@@ -2,6 +2,7 @@
 using Project.Model.Enums;
 using Projekat.Controller;
 using System;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -37,6 +38,16 @@ namespace Projekat.AdministratorPages
                 !String.IsNullOrEmpty(email) && !String.IsNullOrEmpty(password) &&
                 !String.IsNullOrEmpty(combo))
             {
+                if (!IsEmailValid(email))
+                {
+                    MessageBox.Show("Error: Invalid e-mail format!");
+                    return;
+                }
+                if (!IsPhoneNumberValid(pNumber)) 
+                {
+                    MessageBox.Show("Error: Invalid phone number format\n Expected: +381........!");
+                    return;
+                }
                 if (ComboBox.SelectedIndex == 0)
                 {
                     ut = UserType.Host;
@@ -61,17 +72,20 @@ namespace Projekat.AdministratorPages
 
                 if (userController.FindByEmail(email) != null)
                 {
-                    MessageBox.Show("User with same email already exists");
+                    string errorMessage = "Error: User with the same email: " + email + " already exists!";
+                    MessageBox.Show(errorMessage);
                     return;
                 }
                 else if(userController.FindByJmbg(jmbg) != null)
                 {
-                    MessageBox.Show("User with same jmbg already exists");
+                    string errorMessage = "Error: User with the same jmbg: " + jmbg + " already exists!";
+                    MessageBox.Show(errorMessage);
                     return;
                 }
                 else if(jmbg.Length != 13)
                 {
-                    MessageBox.Show("JMBG must be exactly 13 digits");
+                    string errorMessage = "JMBG must be exactly 13 digits!";
+                    MessageBox.Show(errorMessage);
                     return;
                 }
 
@@ -83,6 +97,18 @@ namespace Projekat.AdministratorPages
             }
 
 
+        }
+
+        private bool IsEmailValid(string email)
+        {
+            string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+            return Regex.IsMatch(email, pattern);
+        }
+
+        private bool IsPhoneNumberValid(string phoneNumber)
+        {
+            string pattern = @"^\+[0-9]{11,12}$"; // +(11 ili 12 cifara)
+            return Regex.IsMatch(phoneNumber, pattern);
         }
     }
 }

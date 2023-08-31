@@ -15,9 +15,8 @@ namespace Projekat.GuestPages
     public partial class MyReservations : Page
     {
         private ReservationController reservationController = new ReservationController();
-        private User guest = new User();
-        private HotelController hotelController = new HotelController();
         private ApartmentController apartmentController = new ApartmentController();
+        private User guest = new User();
 
         public MyReservations(User user)
         {
@@ -68,14 +67,12 @@ namespace Projekat.GuestPages
                 {
                     reservationController.CancelReservation(selectedReservation);
                     MessageBox.Show("Reservation has been successfully canceled.");
-                    RefreshDataGrid();
+                    Refresh();
                 }
             }
         }
 
-
-
-        private void RefreshDataGrid()
+        private void Refresh()
         {
             dataGrid.ItemsSource = reservationController.GetAllByGuestJmbg(guest.JMBG);
         }

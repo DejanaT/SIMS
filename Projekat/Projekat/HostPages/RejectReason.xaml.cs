@@ -38,12 +38,20 @@ namespace Projekat.HostPages
 
             Apartment apartment = apartmentController.FindApartmentByReservation(reservation);
 
+            string reason = reasonTextBox.Text;
+
+            if (string.IsNullOrWhiteSpace(reason))
+            {
+                MessageBox.Show("Please enter a reason for rejection.");
+                return;
+            }
+
             if (apartment != null)
             {
                 reservation.ReasonReject = reasonTextBox.Text;
                 reservation.Status = ReservationStatus.Rejected;
                 reservationController.RejectReservation(reservation);
-                MessageBox.Show("Reservation has been successfully rejected.");
+                MessageBox.Show("Reservation has been successfully rejected!");
             }
 
             DialogResult = true;

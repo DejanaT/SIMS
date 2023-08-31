@@ -28,10 +28,10 @@
 
         <DataGrid x:Name="dataGrid"  Margin="332,84,29,93" CanUserAddRows="False" CanUserSortColumns="False" AutoGenerateColumns="False" CanUserResizeColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Name" Width="*"  Binding="{Binding Name}"/>
                 <DataGridTextColumn Header="Description" Width="*" Binding="{Binding Description}"/>
-                <DataGridTextColumn Header="Rooms number" Binding="{Binding RoomsQuantity}"/>
-                <DataGridTextColumn Header="Max. guests" Binding="{Binding MaxNumberOfGuests}"/>
+                <DataGridTextColumn Header="Rooms number" Width="Auto" Binding="{Binding RoomsQuantity}"/>
+                <DataGridTextColumn Header="Max. guests" Width="Auto" Binding="{Binding MaxNumberOfGuests}"/>
             </DataGrid.Columns>
         </DataGrid>
 

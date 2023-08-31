@@ -25,7 +25,7 @@ namespace Projekat.Repository
             apartments = GetAll();
             foreach (Apartment ap in apartments)
             {
-                if (ap.Name.Equals(name))
+                if (ap.Name.Equals(name) && !ap.Deleted)
                 {
                     return ap;
                 }
@@ -78,19 +78,6 @@ namespace Projekat.Repository
                 apartments[index] = apartment;
                 SaveChanges(apartments);
             }
-        }
-
-        public Apartment FindApartmentByReservation(Reservation reservation)
-        {
-            apartments = GetAll();
-            foreach (Apartment apartment in apartments)
-            {
-                if (apartment.Reservations != null && apartment.Reservations.Any(r => r.Id == reservation.Id))
-                {
-                    return apartment;
-                }
-            }
-            return null;
         }
 
     }
